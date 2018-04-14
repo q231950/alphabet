@@ -8,11 +8,27 @@
 
 import UIKit
 
+extension UIView {
+    static func fromNib<T: UIView>() -> T {
+        let nibName = String(describing: T.self)
+        return Bundle.main.loadNibNamed(nibName, owner: self)!.first! as! T
+    }
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let letterView: LetterView = UIView.fromNib()
+        letterView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(letterView)
+        NSLayoutConstraint.activate([
+            letterView.topAnchor.constraint(equalTo: view.topAnchor),
+            letterView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            letterView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            letterView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            ])
     }
 
     override func didReceiveMemoryWarning() {
