@@ -8,15 +8,28 @@
 
 import UIKit
 
+extension ViewController: CharacterSelectable {
+    func didSelectCharacterViewModel(_ characterViewModel: CharacterViewModel) {
+        print("didSelectCharacter(\(characterViewModel.character))")
+        characterView.characterViewModel = characterViewModel
+        view.layoutIfNeeded()
+        animate {
+            self.expandCharacterView()
+        }
+    }
+}
+
 class ViewController: UIViewController {
     
     private let characterView: CharacterView = UIView.fromNib()
-    private let characterSelectionViewController = CharacterSelectionViewController()
+    private var characterSelectionViewController: CharacterSelectionViewController!
     private var expandedCharacterViewConstraint: NSLayoutConstraint!
     private var collapsedCharacterViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        characterSelectionViewController = CharacterSelectionViewController(alphabet: .greek, characterSelectable: self)
         
         registerTapGestureRecognizer()
         

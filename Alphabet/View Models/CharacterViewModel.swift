@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct CharacterViewModel {
+struct CharacterViewModel: Equatable {
     let character: String
     let name: String
+    
+    static var emptyCharacter = CharacterViewModel(character: "", name: "")
+    
+    
 }

@@ -16,17 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fiK-mr-RWm">
-                    <rect key="frame" x="166.5" y="290" width="42" height="87.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fiK-mr-RWm">
+                    <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="α" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-Q8-nHT">
-                            <rect key="frame" x="0.0" y="0.0" width="42" height="60"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="α" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM9-Q8-nHT">
+                            <rect key="frame" x="129.5" y="0.0" width="116.5" height="579.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="200"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alpha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiX-Wf-xz8">
-                            <rect key="frame" x="0.0" y="67" width="42" height="20.5"/>
+                            <rect key="frame" x="166.5" y="586.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -39,8 +39,10 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="fiK-mr-RWm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="d7J-26-uQv"/>
-                <constraint firstItem="fiK-mr-RWm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gSt-mZ-gw4"/>
+                <constraint firstItem="fiK-mr-RWm" firstAttribute="leading" secondItem="gGJ-s0-UvT" secondAttribute="leading" id="GEf-II-3bg"/>
+                <constraint firstItem="fiK-mr-RWm" firstAttribute="top" secondItem="gGJ-s0-UvT" secondAttribute="top" constant="20" id="Gmu-qs-blY"/>
+                <constraint firstItem="gGJ-s0-UvT" firstAttribute="bottom" secondItem="fiK-mr-RWm" secondAttribute="bottom" constant="20" id="LK0-5o-g5V"/>
+                <constraint firstItem="gGJ-s0-UvT" firstAttribute="trailing" secondItem="fiK-mr-RWm" secondAttribute="trailing" id="fiE-wb-vKv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="gGJ-s0-UvT"/>
             <userDefinedRuntimeAttributes>

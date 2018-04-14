@@ -14,4 +14,9 @@ struct AlphabetViewModel {
     init(characters: [CharacterViewModel] = []) {
         self.characters = characters
     }
+    
+    static var greek: AlphabetViewModel = AlphabetViewModel(characters: [CharacterViewModel(character: "α", name: "alpha"),
+                                                                         CharacterViewModel(character: "β", name: "beta"),
+                                                                         CharacterViewModel(character: "γ", name: "gamma")
+        ])
 }
