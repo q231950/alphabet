@@ -1,5 +1,5 @@
 //
-//  LetterSelectionView.swift
+//  CharacterSelectionView.swift
 //  Alphabet
 //
 //  Created by Kim Dung-Pham on 14.04.18.
@@ -10,6 +10,6 @@ import UIKit
 
 @IBDesignable
 
-class LetterSelectionView: UIView {
+class CharacterSelectionView: UIView {
     
 }

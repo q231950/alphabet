@@ -10,21 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let letterView: LetterView = UIView.fromNib()
-    private let letterSelectionView = LetterSelectionView()
-    private var expandedLetterViewConstraint: NSLayoutConstraint!
-    private var collapsedLetterViewConstraint: NSLayoutConstraint!
+    private let characterView: CharacterView = UIView.fromNib()
+    private let characterSelectionView = CharacterSelectionView()
+    private var expandedCharacterViewConstraint: NSLayoutConstraint!
+    private var collapsedCharacterViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerTapGestureRecognizer()
         
-        setupLetterView()
-        setupLetterSelectionView()
+        setupCharacterView()
+        setupCharacterSelectionView()
         
-        layoutLetterViews()
-        expandLetterView()
+        layoutCharacterViews()
+        expandCharacterView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        characterView.characterViewModel = CharacterViewModel(character: "α", name: "alpha".localizedLowercase)
     }
     
     private func registerTapGestureRecognizer() {
@@ -34,15 +40,15 @@ class ViewController: UIViewController {
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {
-        toggleLetterViewState()
+        toggleCharacterViewState()
     }
     
-    private func toggleLetterViewState() {
+    private func toggleCharacterViewState() {
         animate {
-            if self.expandedLetterViewConstraint.isActive {
-                self.collapseLetterView()
+            if self.expandedCharacterViewConstraint.isActive {
+                self.collapseCharacterView()
             } else {
-                self.expandLetterView()
+                self.expandCharacterView()
             }
         }
     }
@@ -54,39 +60,39 @@ class ViewController: UIViewController {
         }
     }
     
-    private func expandLetterView() {
-        NSLayoutConstraint.deactivate([collapsedLetterViewConstraint])
-        NSLayoutConstraint.activate([expandedLetterViewConstraint])
+    private func expandCharacterView() {
+        NSLayoutConstraint.deactivate([collapsedCharacterViewConstraint])
+        NSLayoutConstraint.activate([expandedCharacterViewConstraint])
     }
     
-    private func collapseLetterView() {
-        NSLayoutConstraint.deactivate([expandedLetterViewConstraint])
-        NSLayoutConstraint.activate([collapsedLetterViewConstraint])
+    private func collapseCharacterView() {
+        NSLayoutConstraint.deactivate([expandedCharacterViewConstraint])
+        NSLayoutConstraint.activate([collapsedCharacterViewConstraint])
     }
     
-    private func layoutLetterViews() {
-        expandedLetterViewConstraint = NSLayoutConstraint(item: letterView, attribute: .height, relatedBy: .equal, toItem: letterSelectionView, attribute: .height, multiplier: 1.6, constant: 0)
-        collapsedLetterViewConstraint = NSLayoutConstraint(item: letterSelectionView, attribute: .height, relatedBy: .equal, toItem: letterView, attribute: .height, multiplier: 1.6, constant: 0)
+    private func layoutCharacterViews() {
+        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionView, attribute: .height, multiplier: 1.6, constant: 0)
+        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionView, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.6, constant: 0)
     }
     
-    private func setupLetterView() {
-        view.addSubview(letterView)
-        letterView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupCharacterView() {
+        view.addSubview(characterView)
+        characterView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            letterView.topAnchor.constraint(equalTo: view.topAnchor),
-            letterView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            letterView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            characterView.topAnchor.constraint(equalTo: view.topAnchor),
+            characterView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            characterView.leftAnchor.constraint(equalTo: view.leftAnchor),
             ])
     }
     
-    private func setupLetterSelectionView() {
-        view.addSubview(letterSelectionView)
-        letterSelectionView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupCharacterSelectionView() {
+        view.addSubview(characterSelectionView)
+        characterSelectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            letterSelectionView.topAnchor.constraint(equalTo: letterView.bottomAnchor),
-            letterSelectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            letterSelectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            letterSelectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            characterSelectionView.topAnchor.constraint(equalTo: characterView.bottomAnchor),
+            characterSelectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            characterSelectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            characterSelectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
             ])
     }
 }
