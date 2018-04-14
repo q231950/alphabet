@@ -8,13 +8,6 @@
 
 import UIKit
 
-extension UIView {
-    static func fromNib<T: UIView>() -> T {
-        let nibName = String(describing: T.self)
-        return Bundle.main.loadNibNamed(nibName, owner: self)!.first! as! T
-    }
-}
-
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

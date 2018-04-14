@@ -15,6 +15,8 @@
 		FD8A8F9F208219DE00E9E484 /* AlphabetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8F9E208219DE00E9E484 /* AlphabetUITests.swift */; };
 		FD8A8FAA20821A7900E9E484 /* LetterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8A8FA920821A7900E9E484 /* LetterView.xib */; };
 		FD8A8FAC20821A9600E9E484 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FAB20821A9600E9E484 /* LetterView.swift */; };
+		FD8A8FB0208225DE00E9E484 /* LetterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FAF208225DE00E9E484 /* LetterSelectionView.swift */; };
+		FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		FD8A8FA0208219DE00E9E484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD8A8FA920821A7900E9E484 /* LetterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterView.xib; sourceTree = "<group>"; };
 		FD8A8FAB20821A9600E9E484 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
+		FD8A8FAF208225DE00E9E484 /* LetterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSelectionView.swift; sourceTree = "<group>"; };
+		FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 			children = (
 				FD8A8F89208219DD00E9E484 /* AppDelegate.swift */,
 				FD8A8F8B208219DD00E9E484 /* ViewController.swift */,
+				FD8A8FB12082261C00E9E484 /* Extensions */,
+				FD8A8FAE2082259800E9E484 /* Letter Selection View */,
 				FD8A8FAD2082238F00E9E484 /* Letter View */,
 				FD8A8F8D208219DD00E9E484 /* Main.storyboard */,
 				FD8A8F90208219DE00E9E484 /* Assets.xcassets */,
@@ -108,6 +114,22 @@
 				FD8A8FA920821A7900E9E484 /* LetterView.xib */,
 			);
 			path = "Letter View";
+			sourceTree = "<group>";
+		};
+		FD8A8FAE2082259800E9E484 /* Letter Selection View */ = {
+			isa = PBXGroup;
+			children = (
+				FD8A8FAF208225DE00E9E484 /* LetterSelectionView.swift */,
+			);
+			path = "Letter Selection View";
+			sourceTree = "<group>";
+		};
+		FD8A8FB12082261C00E9E484 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
+				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
+				FD8A8FB0208225DE00E9E484 /* LetterSelectionView.swift in Sources */,
 				FD8A8FAC20821A9600E9E484 /* LetterView.swift in Sources */,
 				FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */,
 			);
