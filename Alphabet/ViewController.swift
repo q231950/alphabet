@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private let characterView: CharacterView = UIView.fromNib()
-    private let characterSelectionView = CharacterSelectionView()
+    private let characterSelectionViewController = CharacterSelectionViewController()
     private var expandedCharacterViewConstraint: NSLayoutConstraint!
     private var collapsedCharacterViewConstraint: NSLayoutConstraint!
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         registerTapGestureRecognizer()
         
         setupCharacterView()
-        setupCharacterSelectionView()
+        setupCharacterSelectionViewController()
         
         layoutCharacterViews()
         expandCharacterView()
@@ -71,8 +71,8 @@ class ViewController: UIViewController {
     }
     
     private func layoutCharacterViews() {
-        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionView, attribute: .height, multiplier: 1.6, constant: 0)
-        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionView, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.6, constant: 0)
+        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 1.6, constant: 0)
+        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.6, constant: 0)
     }
     
     private func setupCharacterView() {
@@ -85,14 +85,15 @@ class ViewController: UIViewController {
             ])
     }
     
-    private func setupCharacterSelectionView() {
-        view.addSubview(characterSelectionView)
-        characterSelectionView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupCharacterSelectionViewController() {
+        addChildViewController(characterSelectionViewController)
+        view.addSubview(characterSelectionViewController.view)
+        characterSelectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            characterSelectionView.topAnchor.constraint(equalTo: characterView.bottomAnchor),
-            characterSelectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            characterSelectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            characterSelectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            characterSelectionViewController.view.topAnchor.constraint(equalTo: characterView.bottomAnchor),
+            characterSelectionViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+            characterSelectionViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            characterSelectionViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
             ])
     }
 }

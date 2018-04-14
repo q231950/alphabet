@@ -18,6 +18,8 @@
 		FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FAF208225DE00E9E484 /* CharacterSelectionView.swift */; };
 		FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */; };
 		FD8A8FB52082673700E9E484 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB42082673700E9E484 /* CharacterViewModel.swift */; };
+		FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */; };
+		FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		FD8A8FAF208225DE00E9E484 /* CharacterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionView.swift; sourceTree = "<group>"; };
 		FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		FD8A8FB42082673700E9E484 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewModel.swift; sourceTree = "<group>"; };
+		FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +93,9 @@
 			children = (
 				FD8A8F89208219DD00E9E484 /* AppDelegate.swift */,
 				FD8A8F8B208219DD00E9E484 /* ViewController.swift */,
-				FD8A8FB42082673700E9E484 /* CharacterViewModel.swift */,
+				FD8A8FB620826A5D00E9E484 /* View Models */,
 				FD8A8FB12082261C00E9E484 /* Extensions */,
-				FD8A8FAE2082259800E9E484 /* Character Selection View */,
+				FD8A8FAE2082259800E9E484 /* Character Selection */,
 				FD8A8FAD2082238F00E9E484 /* Character View */,
 				FD8A8F8D208219DD00E9E484 /* Main.storyboard */,
 				FD8A8F90208219DE00E9E484 /* Assets.xcassets */,
@@ -119,12 +123,13 @@
 			path = "Character View";
 			sourceTree = "<group>";
 		};
-		FD8A8FAE2082259800E9E484 /* Character Selection View */ = {
+		FD8A8FAE2082259800E9E484 /* Character Selection */ = {
 			isa = PBXGroup;
 			children = (
 				FD8A8FAF208225DE00E9E484 /* CharacterSelectionView.swift */,
+				FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */,
 			);
-			path = "Character Selection View";
+			path = "Character Selection";
 			sourceTree = "<group>";
 		};
 		FD8A8FB12082261C00E9E484 /* Extensions */ = {
@@ -133,6 +138,15 @@
 				FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FD8A8FB620826A5D00E9E484 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD8A8FB42082673700E9E484 /* CharacterViewModel.swift */,
+				FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +254,9 @@
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
+				FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */,
 				FD8A8FAC20821A9600E9E484 /* CharacterView.swift in Sources */,
+				FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */,
 				FD8A8FB52082673700E9E484 /* CharacterViewModel.swift in Sources */,
 				FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */,
 			);
