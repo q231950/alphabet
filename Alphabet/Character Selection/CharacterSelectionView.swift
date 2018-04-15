@@ -42,7 +42,8 @@ class CharacterSelectionView: UIView {
     }
     
     private func setupButton() {
-        button.setTitle(character.name, for: .normal)
+        let title = NSAttributedString(string: character.name, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)])
+        button.setAttributedTitle(title, for: .normal)
         button.addTarget(self, action: #selector(didPressButton), for:.touchUpInside)
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false

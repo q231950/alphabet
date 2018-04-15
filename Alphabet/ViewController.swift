@@ -21,10 +21,11 @@ extension ViewController: CharacterSelectable {
 
 class ViewController: UIViewController {
     
-    private let characterView: CharacterView = UIView.fromNib()
+    private let characterView = CharacterView()
     private var characterSelectionViewController: CharacterSelectionViewController!
     private var expandedCharacterViewConstraint: NSLayoutConstraint!
     private var collapsedCharacterViewConstraint: NSLayoutConstraint!
+    private var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
     
     private func toggleCharacterViewState() {
         animate {
-            if self.expandedCharacterViewConstraint.isActive {
+            if self.expandedCharacterViewConstraint.isActive { //self.heightConstraint.constant == 200
                 self.collapseCharacterView()
             } else {
                 self.expandCharacterView()
@@ -74,18 +75,23 @@ class ViewController: UIViewController {
     }
     
     private func expandCharacterView() {
+//        heightConstraint.constant = 200
         NSLayoutConstraint.deactivate([collapsedCharacterViewConstraint])
         NSLayoutConstraint.activate([expandedCharacterViewConstraint])
     }
     
     private func collapseCharacterView() {
+//        heightConstraint.constant = 80
         NSLayoutConstraint.deactivate([expandedCharacterViewConstraint])
         NSLayoutConstraint.activate([collapsedCharacterViewConstraint])
     }
     
     private func layoutCharacterViews() {
-        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 1.6, constant: 0)
-        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.6, constant: 0)
+        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 4, constant: 0)
+        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 4, constant: 0)
+        
+        heightConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+//        heightConstraint.isActive = true
     }
     
     private func setupCharacterView() {

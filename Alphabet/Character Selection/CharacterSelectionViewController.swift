@@ -11,11 +11,13 @@ import UIKit
 class CharacterSelectionViewController: UIViewController {
     
     let scrollView = UIScrollView()
+    let stackView = UIStackView()
     
     init(alphabet: AlphabetViewModel = AlphabetViewModel(), characterSelectable: CharacterSelectable) {
         super.init(nibName: nil, bundle: nil)
         
         setupScrollView()
+        setupStackView()
         layout(alphabet, characterSelectable: characterSelectable)
     }
     
@@ -24,31 +26,26 @@ class CharacterSelectionViewController: UIViewController {
     }
     
     private func layout(_ alphabet: AlphabetViewModel, characterSelectable: CharacterSelectable) {
-        var previousView: UIView? = nil
-        let margin: CGFloat = 5
-        
         alphabet.characters.forEach { (character) in
-            let characterSelectionView = CharacterSelectionView(character: character,
-                                                                characterSelectable: characterSelectable)
-            characterSelectionView.translatesAutoresizingMaskIntoConstraints = false
-            scrollView.addSubview(characterSelectionView)
-            NSLayoutConstraint.activate([
-                characterSelectionView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-                characterSelectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-                ])
-            
-            if let previousView = previousView {
-                characterSelectionView.leftAnchor.constraint(equalTo: previousView.rightAnchor, constant: margin).isActive = true
-            } else {
-                characterSelectionView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: margin).isActive = true
-            }
-            
-            if let last = alphabet.characters.last, last == character {
-                characterSelectionView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -margin).isActive = true
-            }
-            
-            previousView = characterSelectionView
+            let characterSelectionView = CharacterSelectionView(character: character, characterSelectable: characterSelectable)
+            stackView.addArrangedSubview(characterSelectionView)
         }
+    }
+    
+    private func setupStackView() {
+        scrollView.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        let stackViewMargin: CGFloat = 10
+        NSLayoutConstraint.activate([
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: stackViewMargin),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: stackViewMargin),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -stackViewMargin),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -stackViewMargin),
+            stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            ])
     }
     
     private func setupScrollView() {

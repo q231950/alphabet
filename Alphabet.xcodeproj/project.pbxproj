@@ -13,7 +13,6 @@
 		FD8A8F91208219DE00E9E484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8A8F90208219DE00E9E484 /* Assets.xcassets */; };
 		FD8A8F94208219DE00E9E484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8A8F92208219DE00E9E484 /* LaunchScreen.storyboard */; };
 		FD8A8F9F208219DE00E9E484 /* AlphabetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8F9E208219DE00E9E484 /* AlphabetUITests.swift */; };
-		FD8A8FAA20821A7900E9E484 /* CharacterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8A8FA920821A7900E9E484 /* CharacterView.xib */; };
 		FD8A8FAC20821A9600E9E484 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FAB20821A9600E9E484 /* CharacterView.swift */; };
 		FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FAF208225DE00E9E484 /* CharacterSelectionView.swift */; };
 		FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */; };
@@ -43,7 +42,6 @@
 		FD8A8F9A208219DE00E9E484 /* AlphabetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlphabetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8A8F9E208219DE00E9E484 /* AlphabetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetUITests.swift; sourceTree = "<group>"; };
 		FD8A8FA0208219DE00E9E484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD8A8FA920821A7900E9E484 /* CharacterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterView.xib; sourceTree = "<group>"; };
 		FD8A8FAB20821A9600E9E484 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		FD8A8FAF208225DE00E9E484 /* CharacterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionView.swift; sourceTree = "<group>"; };
 		FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				FD8A8FAB20821A9600E9E484 /* CharacterView.swift */,
-				FD8A8FA920821A7900E9E484 /* CharacterView.xib */,
 			);
 			path = "Character View";
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 			files = (
 				FD8A8F94208219DE00E9E484 /* LaunchScreen.storyboard in Resources */,
 				FD8A8F91208219DE00E9E484 /* Assets.xcassets in Resources */,
-				FD8A8FAA20821A7900E9E484 /* CharacterView.xib in Resources */,
 				FD8A8F8F208219DD00E9E484 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
