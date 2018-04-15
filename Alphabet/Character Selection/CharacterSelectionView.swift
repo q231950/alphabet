@@ -15,36 +15,67 @@ protocol CharacterSelectable {
 class CharacterSelectionView: UIView {
     let character: CharacterViewModel
     var characterSelectable: CharacterSelectable?
-    let button: UIButton = UIButton(type: .custom)
+    let button: UIButton = UIButton(type: UIButtonType.roundedRect)
+    let buttonInsets = UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8)
+    let borderView = UIView()
+    public var selected: Bool {
+        didSet {
+            borderView.isHidden = !selected
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        get {
+            let contentSize = button.intrinsicContentSize
+            return CGSize(width: buttonInsets.left + contentSize.width + buttonInsets.right,
+                          height: contentSize.height)
+        }
+    }
     
     init(character: CharacterViewModel, characterSelectable: CharacterSelectable?) {
         self.character = character
         self.characterSelectable = characterSelectable
+        self.selected = false
         
         super.init(frame: .zero)
-        
+        setupSelectionBorder()
         setupButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
         character = CharacterViewModel.emptyCharacter
+        self.selected = false
         super.init(coder: aDecoder)
+    }
+    
+    private func setupSelectionBorder() {
+        addSubview(borderView)
+        borderView.isHidden = true
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.layer.borderColor = UIColor(white: 1, alpha: 0.5).cgColor
+        borderView.layer.backgroundColor = UIColor(white: 0, alpha: 0.1).cgColor
+        borderView.layer.borderWidth = 1
+        borderView.layer.cornerRadius = 3
+        NSLayoutConstraint.activate([
+            borderView.topAnchor.constraint(equalTo: topAnchor),
+            borderView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            borderView.leftAnchor.constraint(equalTo: leftAnchor),
+            borderView.rightAnchor.constraint(equalTo: rightAnchor),
+            ])
     }
     
     @objc func didPressButton() {
         characterSelectable?.didSelectCharacterViewModel(character)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        get {
-            return button.intrinsicContentSize
-        }
+        selected = true
     }
     
     private func setupButton() {
-        let title = NSAttributedString(string: character.name, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)])
-        button.setAttributedTitle(title, for: .normal)
+//        let title = NSAttributedString(string: character.name, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)])
+//        button.setAttributedTitle(title, for: .normal)
+        button.setTitle(character.name, for: .normal)
+        button.tintColor = .white
         button.addTarget(self, action: #selector(didPressButton), for:.touchUpInside)
+        button.titleEdgeInsets = buttonInsets
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -55,3 +86,4 @@ class CharacterSelectionView: UIView {
             ])
     }
 }
+

@@ -12,6 +12,7 @@ class CharacterSelectionViewController: UIViewController {
     
     let scrollView = UIScrollView()
     let stackView = UIStackView()
+    private var characterSelectionViews = [CharacterSelectionView]()
     
     init(alphabet: AlphabetViewModel = AlphabetViewModel(), characterSelectable: CharacterSelectable) {
         super.init(nibName: nil, bundle: nil)
@@ -25,9 +26,16 @@ class CharacterSelectionViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    func select(character: CharacterViewModel) {
+        characterSelectionViews.forEach { (characterView) in
+            characterView.selected = characterView.character == character
+        }
+    }
+    
     private func layout(_ alphabet: AlphabetViewModel, characterSelectable: CharacterSelectable) {
         alphabet.characters.forEach { (character) in
             let characterSelectionView = CharacterSelectionView(character: character, characterSelectable: characterSelectable)
+            characterSelectionViews.append(characterSelectionView)
             stackView.addArrangedSubview(characterSelectionView)
         }
     }
@@ -36,7 +44,8 @@ class CharacterSelectionViewController: UIViewController {
         scrollView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
         stackView.spacing = 5
         let stackViewMargin: CGFloat = 10
         NSLayoutConstraint.activate([
@@ -50,7 +59,7 @@ class CharacterSelectionViewController: UIViewController {
     
     private func setupScrollView() {
         view.addSubview(scrollView)
-        scrollView.backgroundColor = .darkGray
+        scrollView.backgroundColor = UIColor(white: 0.4, alpha: 1)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceHorizontal = true
         NSLayoutConstraint.activate([

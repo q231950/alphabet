@@ -11,6 +11,7 @@ import UIKit
 extension ViewController: CharacterSelectable {
     func didSelectCharacterViewModel(_ characterViewModel: CharacterViewModel) {
         print("didSelectCharacter(\(characterViewModel.character))")
+        characterSelectionViewController.select(character: characterViewModel)
         characterView.characterViewModel = characterViewModel
         view.layoutIfNeeded()
         animate {
@@ -44,7 +45,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        characterView.characterViewModel = CharacterViewModel(character: "α", name: "alpha".localizedLowercase)
+        let character = CharacterViewModel(character: "α", name: "alpha".localizedLowercase)
+        characterView.characterViewModel = character
+        characterSelectionViewController.select(character: character)
     }
     
     private func registerTapGestureRecognizer() {
