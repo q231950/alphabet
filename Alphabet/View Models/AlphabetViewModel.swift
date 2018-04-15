@@ -17,6 +17,12 @@ struct AlphabetViewModel {
     
     static var greek: AlphabetViewModel = AlphabetViewModel(characters: [CharacterViewModel(character: "α", name: "alpha"),
                                                                          CharacterViewModel(character: "β", name: "beta"),
-                                                                         CharacterViewModel(character: "γ", name: "gamma")
+                                                                         CharacterViewModel(character: "γ", name: "gamma"),
+                                                                         CharacterViewModel(character: "δ", name: "delta"),
+                                                                         CharacterViewModel(character: "ε", name: "epsilon"),
+                                                                         CharacterViewModel(character: "ζ", name: "zeta"),
+                                                                         CharacterViewModel(character: "η", name: "eta"),
+                                                                         CharacterViewModel(character: "θ", name: "theta"),
+                                                                         CharacterViewModel(character: "ι", name: "iota"),
         ])
 }
