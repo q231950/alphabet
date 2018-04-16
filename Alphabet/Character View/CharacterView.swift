@@ -27,7 +27,7 @@ class CharacterView: UIView {
         setupCharacterLabel()
         setupCharacterNameLabel()
         
-        backgroundColor = UIColor(white: 0.9, alpha: 1)
+        backgroundColor = UIColor(white: 0.95, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

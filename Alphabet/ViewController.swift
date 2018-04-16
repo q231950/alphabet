@@ -26,20 +26,20 @@ class ViewController: UIViewController {
     private var characterSelectionViewController: CharacterSelectionViewController!
     private var expandedCharacterViewConstraint: NSLayoutConstraint!
     private var collapsedCharacterViewConstraint: NSLayoutConstraint!
-    private var heightConstraint: NSLayoutConstraint!
+    private var activeHeightConstraint: NSLayoutConstraint!
+    private var panOrigin: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         characterSelectionViewController = CharacterSelectionViewController(alphabet: .greek, characterSelectable: self)
         
-        registerTapGestureRecognizer()
+        registerGestureRecognizers()
         
         setupCharacterView()
         setupCharacterSelectionViewController()
         
         layoutCharacterViews()
-        expandCharacterView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,19 +50,60 @@ class ViewController: UIViewController {
         characterSelectionViewController.select(character: character)
     }
     
-    private func registerTapGestureRecognizer() {
+    private func registerGestureRecognizers() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.tap(sender:)))
         tapRecognizer.numberOfTapsRequired = 2
         view.addGestureRecognizer(tapRecognizer)
+
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ViewController.pan(sender:)))
+        view.addGestureRecognizer(panRecognizer)
     }
     
     @objc func tap(sender: UITapGestureRecognizer) {
         toggleCharacterViewState()
     }
+
+    @objc func pan(sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            panOrigin = sender.translation(in: self.view)
+        case .changed:
+            let offsetY = offset(sender: sender)
+            updateCharacterViewLayout(with: offsetY)
+        case .ended:
+            let offsetY = offset(sender: sender)
+            animate {
+                self.activeHeightConstraint.constant = 0
+                if offsetY < 0 {
+                    self.collapseCharacterView()
+                } else {
+                    self.expandCharacterView()
+                }
+                self.panOrigin = nil
+            }
+        default:
+            panOrigin = nil
+        }
+    }
+
+    private func offset(sender: UIPanGestureRecognizer) -> CGFloat{
+        guard let panOrigin = panOrigin else {
+            return 0
+        }
+        let currentPoint = sender.translation(in: self.view)
+        return currentPoint.y - panOrigin.y
+    }
+
+    private func updateCharacterViewLayout(with offset: CGFloat) {
+        view.setNeedsLayout()
+        activeHeightConstraint.constant = expandedCharacterViewConstraint.isActive ? -offset : offset
+        view.layoutIfNeeded()
+    }
     
     private func toggleCharacterViewState() {
         animate {
-            if self.expandedCharacterViewConstraint.isActive { //self.heightConstraint.constant == 200
+            self.activeHeightConstraint.constant = 0
+            if self.expandedCharacterViewConstraint.isActive {
                 self.collapseCharacterView()
             } else {
                 self.expandCharacterView()
@@ -78,23 +119,22 @@ class ViewController: UIViewController {
     }
     
     private func expandCharacterView() {
-//        heightConstraint.constant = 200
         NSLayoutConstraint.deactivate([collapsedCharacterViewConstraint])
         NSLayoutConstraint.activate([expandedCharacterViewConstraint])
+        activeHeightConstraint = expandedCharacterViewConstraint
     }
     
     private func collapseCharacterView() {
-//        heightConstraint.constant = 80
         NSLayoutConstraint.deactivate([expandedCharacterViewConstraint])
         NSLayoutConstraint.activate([collapsedCharacterViewConstraint])
+        activeHeightConstraint = collapsedCharacterViewConstraint
     }
     
     private func layoutCharacterViews() {
-        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 4, constant: 0)
-        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 4, constant: 0)
-        
-        heightConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
-//        heightConstraint.isActive = true
+        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1/4, constant: 0)
+        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 1/4, constant: 0)
+        expandedCharacterViewConstraint.isActive = true
+        activeHeightConstraint = expandedCharacterViewConstraint
     }
     
     private func setupCharacterView() {
