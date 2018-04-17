@@ -38,7 +38,7 @@ class CharacterView: UIView {
         addSubview(characterLabel)
         characterLabel.translatesAutoresizingMaskIntoConstraints = false
         characterLabel.textAlignment = .center
-        characterLabel.font = UIFont.systemFont(ofSize: 80)
+        characterLabel.font = UIFont(name: "Times New Roman", size: 80)
         characterLabel.adjustsFontSizeToFitWidth = true
         characterLabel.numberOfLines = 0
         characterLabel.lineBreakMode = .byClipping
