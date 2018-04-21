@@ -10,8 +10,8 @@ import UIKit
 
 class CharacterSelectionViewController: UIViewController {
     
-    let scrollView = UIScrollView()
-    let stackView = UIStackView()
+    private let scrollView = UIScrollView()
+    private let stackView = UIStackView()
     private var characterSelectionViews = [CharacterSelectionView]()
     
     init(alphabet: AlphabetViewModel = AlphabetViewModel(), characterSelectable: CharacterSelectable) {

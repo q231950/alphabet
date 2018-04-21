@@ -60,14 +60,19 @@ class CharacterView: UIView {
         characterStackView.distribution = .fillProportionally
         characterStackView.alignment = .center
         characterStackView.translatesAutoresizingMaskIntoConstraints = false
+        characterStackView.isLayoutMarginsRelativeArrangement = true
+        characterStackView.layoutMargins = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
 
-        characterLabel.textAlignment = .center
-        characterLabel.font = UIFont(name: "Times New Roman", size: 80)
+        setupLabel(characterLabel)
         characterStackView.addArrangedSubview(characterLabel)
 
-        capitalCharacterLabel.textAlignment = .center
-        capitalCharacterLabel.font = UIFont(name: "Times New Roman", size: 80)
+        setupLabel(capitalCharacterLabel)
         characterStackView.addArrangedSubview(capitalCharacterLabel)
+    }
+
+    private func setupLabel(_ label: UILabel) {
+        label.textAlignment = .center
+        label.font = UIFont(name: "Times New Roman", size: 80)
     }
     
     private func setupCharacterDescriptionLabel() {

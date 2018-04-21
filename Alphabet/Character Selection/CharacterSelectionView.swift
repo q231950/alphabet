@@ -70,8 +70,6 @@ class CharacterSelectionView: UIView {
     }
     
     private func setupButton() {
-//        let title = NSAttributedString(string: character.name, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title2)])
-//        button.setAttributedTitle(title, for: .normal)
         button.setTitle(character.name, for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(didPressButton), for:.touchUpInside)

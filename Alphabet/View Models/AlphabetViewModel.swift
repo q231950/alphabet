@@ -15,7 +15,7 @@ struct AlphabetViewModel {
         self.characters = characters
     }
 
-    //αβγδεζηθικλμνξοπρςστυφχψω
+    // αβγδεζηθικλμνξοπρςστυφχψω
     // ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
     static var greek: AlphabetViewModel = AlphabetViewModel(characters: [CharacterViewModel(character: "α", capitalCharacter:"Α", name: "alpha"),
                                                                          CharacterViewModel(character: "β", capitalCharacter:"Β", name: "beta"),
