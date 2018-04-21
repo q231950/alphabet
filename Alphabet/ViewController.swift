@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        characterSelectionViewController = CharacterSelectionViewController(alphabet: .greek, characterSelectable: self)
+        characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
         registerGestureRecognizers()
         
