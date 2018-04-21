@@ -72,7 +72,8 @@ class ViewController: UIViewController {
             updateCharacterViewLayout(with: offsetY)
         case .ended:
             let offsetY = offset(sender: sender)
-            animate {
+            let duration = animationDurationForVelocity(sender.velocity(in: view).y)
+            animate(duration: duration, animations: {
                 self.activeHeightConstraint.constant = 0
                 if offsetY < 0 {
                     self.collapseCharacterView()
@@ -80,7 +81,7 @@ class ViewController: UIViewController {
                     self.expandCharacterView()
                 }
                 self.panOrigin = nil
-            }
+            })
         default:
             panOrigin = nil
         }
@@ -111,11 +112,19 @@ class ViewController: UIViewController {
         }
     }
     
-    private func animate(animations: @escaping () -> Swift.Void) {
-        UIView.animate(withDuration: 0.3) {
+    private func animate(duration: Double = 1, animations: @escaping () -> Swift.Void) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             animations()
             self.view.layoutIfNeeded()
-        }
+        })
+    }
+
+    private func animationDurationForVelocity(_ velocity: CGFloat) -> Double {
+        let screenHeight = view.frame.height
+        var duration = 1 / (abs(velocity) / screenHeight)
+        duration = duration > 1 ? 1 : duration
+        duration = duration * 0.3
+        return Double(duration)
     }
     
     private func expandCharacterView() {
