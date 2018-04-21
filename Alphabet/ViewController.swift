@@ -131,8 +131,11 @@ class ViewController: UIViewController {
     }
     
     private func layoutCharacterViews() {
-        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1/4, constant: 0)
-        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 1/4, constant: 0)
+        expandedCharacterViewConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 0.5, constant: 0)
+        expandedCharacterViewConstraint.priority = .defaultLow
+        collapsedCharacterViewConstraint = NSLayoutConstraint(item: characterView, attribute: .height, relatedBy: .equal, toItem: characterSelectionViewController.view, attribute: .height, multiplier: 0.5, constant: 0)
+        collapsedCharacterViewConstraint.priority = .defaultLow
+
         expandedCharacterViewConstraint.isActive = true
         activeHeightConstraint = expandedCharacterViewConstraint
     }

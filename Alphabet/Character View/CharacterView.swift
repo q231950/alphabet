@@ -11,8 +11,10 @@ import UIKit
 @IBDesignable
 class CharacterView: UIView {
     
-    var characterLabel = UILabel()
-    var characterNameLabel = UILabel()
+    let characterLabel = UILabel()
+    let characterNameLabel = UILabel()
+    let characterStackView = UIStackView()
+    let verticalStackView = UIStackView()
     
     var characterViewModel: CharacterViewModel? {
         didSet {
@@ -23,9 +25,10 @@ class CharacterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        setupCharacterLabel()
+
+        setupCharacterLabels()
         setupCharacterNameLabel()
+        setupVerticalStackView(views: [characterStackView, characterNameLabel])
         
         backgroundColor = UIColor(white: 0.95, alpha: 1)
     }
@@ -33,36 +36,41 @@ class CharacterView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    private func setupVerticalStackView(views: [UIView]) {
+        addSubview(verticalStackView)
+        verticalStackView.axis = .vertical
+        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            verticalStackView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            verticalStackView.leftAnchor.constraint(equalTo: leftAnchor),
+            verticalStackView.rightAnchor.constraint(equalTo: rightAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            ])
+        addSubview(verticalStackView)
+        views.forEach { (view) in
+            verticalStackView.addArrangedSubview(view)
+        }
+    }
     
-    private func setupCharacterLabel() {
-        addSubview(characterLabel)
-        characterLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupCharacterLabels() {
+        characterStackView.axis = .horizontal
+        characterStackView.backgroundColor = .orange
+        characterStackView.translatesAutoresizingMaskIntoConstraints = false
+        characterStackView.addArrangedSubview(characterLabel)
+
         characterLabel.textAlignment = .center
         characterLabel.font = UIFont(name: "Times New Roman", size: 80)
         characterLabel.adjustsFontSizeToFitWidth = true
         characterLabel.numberOfLines = 0
         characterLabel.lineBreakMode = .byClipping
-        characterLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        NSLayoutConstraint.activate([
-            characterLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            characterLabel.leftAnchor.constraint(equalTo: leftAnchor),
-            characterLabel.rightAnchor.constraint(equalTo: rightAnchor),
-            ])
     }
     
     private func setupCharacterNameLabel() {
-        addSubview(characterNameLabel)
         characterNameLabel.translatesAutoresizingMaskIntoConstraints = false
         characterNameLabel.textAlignment = .center
         characterNameLabel.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection.init(horizontalSizeClass: .compact))
         characterNameLabel.font = UIFont.preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection.init(horizontalSizeClass: .regular))
         characterNameLabel.adjustsFontForContentSizeCategory = true
-        characterNameLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        NSLayoutConstraint.activate([
-            characterNameLabel.topAnchor.constraint(equalTo: characterLabel.bottomAnchor),
-            characterNameLabel.leftAnchor.constraint(equalTo: leftAnchor),
-            characterNameLabel.rightAnchor.constraint(equalTo: rightAnchor),
-            characterNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            ])
     }
 }
