@@ -13,16 +13,37 @@ class CharacterSelectionViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
     private var characterSelectionViews = [CharacterSelectionView]()
+    private let stackViewEdgeSpacing: CGFloat = 20
+    private let stackViewSpacing: CGFloat = 20
+    private let characterSelectable: CharacterSelectable?
+    private let alphabet: AlphabetViewModel
     
     init(alphabet: AlphabetViewModel = AlphabetViewModel(), characterSelectable: CharacterSelectable) {
+        self.characterSelectable = characterSelectable
+        self.alphabet = alphabet
+
         super.init(nibName: nil, bundle: nil)
-        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = UIColor(white: 0.4, alpha: 1)
+
         setupScrollView()
         setupStackView()
-        layout(alphabet, characterSelectable: characterSelectable)
+        layoutAlphabet(alphabet, characterSelectable: characterSelectable)
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        scrollView.flashScrollIndicators()
+    }
+
     required init?(coder aDecoder: NSCoder) {
+        self.characterSelectable = nil
+        self.alphabet = AlphabetViewModel()
         super.init(coder: aDecoder)
     }
     
@@ -32,7 +53,7 @@ class CharacterSelectionViewController: UIViewController {
         }
     }
     
-    private func layout(_ alphabet: AlphabetViewModel, characterSelectable: CharacterSelectable) {
+    private func layoutAlphabet(_ alphabet: AlphabetViewModel, characterSelectable: CharacterSelectable?) {
         alphabet.characters.forEach { (character) in
             let characterSelectionView = CharacterSelectionView(character: character, characterSelectable: characterSelectable)
             characterSelectionViews.append(characterSelectionView)
@@ -45,28 +66,30 @@ class CharacterSelectionViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-        stackView.spacing = 5
-        let stackViewMargin: CGFloat = 10
+        stackView.alignment = .bottom
+        stackView.spacing = stackViewSpacing
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: stackViewEdgeSpacing, left: stackViewEdgeSpacing, bottom: stackViewEdgeSpacing, right: stackViewEdgeSpacing)
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: stackViewMargin),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: stackViewMargin),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -stackViewMargin),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -stackViewMargin),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.bottomAnchor),
             stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             ])
     }
     
     private func setupScrollView() {
         view.addSubview(scrollView)
-        scrollView.backgroundColor = UIColor(white: 0.4, alpha: 1)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceHorizontal = true
+        scrollView.indicatorStyle = .white
+        scrollView.clipsToBounds = false
         NSLayoutConstraint.activate([
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             ])
     }
 }
