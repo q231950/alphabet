@@ -75,7 +75,6 @@ class CharacterSelectionViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.bottomAnchor),
-            stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             ])
     }
     
