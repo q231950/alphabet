@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let character = CharacterViewModel(character: "α", name: "alpha".localizedLowercase)
+        let character = CharacterViewModel(character: "α", capitalCharacter: "Α", name: "alpha".localizedLowercase)
         characterView.characterViewModel = character
         characterSelectionViewController.select(character: character)
     }

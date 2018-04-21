@@ -10,9 +10,12 @@ import Foundation
 
 struct CharacterViewModel: Equatable {
     let character: String
+    let capitalCharacter: String
     let name: String
-    
-    static var emptyCharacter = CharacterViewModel(character: "", name: "")
-    
-    
+
+    init(character: String = "", capitalCharacter: String = "", name: String = "") {
+        self.character = character
+        self.capitalCharacter = capitalCharacter
+        self.name = name
+    }
 }

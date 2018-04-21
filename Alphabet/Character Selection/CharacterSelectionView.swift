@@ -43,7 +43,7 @@ class CharacterSelectionView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        character = CharacterViewModel.emptyCharacter
+        character = CharacterViewModel()
         self.selected = false
         super.init(coder: aDecoder)
     }

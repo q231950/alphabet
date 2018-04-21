@@ -12,14 +12,16 @@ import UIKit
 class CharacterView: UIView {
     
     let characterLabel = UILabel()
-    let characterNameLabel = UILabel()
+    let capitalCharacterLabel = UILabel()
+    let characterDescriptionLabel = UILabel()
     let characterStackView = UIStackView()
     let verticalStackView = UIStackView()
     
     var characterViewModel: CharacterViewModel? {
         didSet {
             characterLabel.text = characterViewModel?.character
-            characterNameLabel.text = characterViewModel?.name
+            capitalCharacterLabel.text = characterViewModel?.capitalCharacter
+            characterDescriptionLabel.text = characterViewModel?.name
         }
     }
     
@@ -27,8 +29,8 @@ class CharacterView: UIView {
         super.init(frame: frame)
 
         setupCharacterLabels()
-        setupCharacterNameLabel()
-        setupVerticalStackView(views: [characterStackView, characterNameLabel])
+        setupCharacterDescriptionLabel()
+        setupVerticalStackView(views: [characterStackView, characterDescriptionLabel])
         
         backgroundColor = UIColor(white: 0.95, alpha: 1)
     }
@@ -55,22 +57,24 @@ class CharacterView: UIView {
     
     private func setupCharacterLabels() {
         characterStackView.axis = .horizontal
-        characterStackView.backgroundColor = .orange
+        characterStackView.distribution = .fillProportionally
+        characterStackView.alignment = .center
         characterStackView.translatesAutoresizingMaskIntoConstraints = false
-        characterStackView.addArrangedSubview(characterLabel)
 
         characterLabel.textAlignment = .center
         characterLabel.font = UIFont(name: "Times New Roman", size: 80)
-        characterLabel.adjustsFontSizeToFitWidth = true
-        characterLabel.numberOfLines = 0
-        characterLabel.lineBreakMode = .byClipping
+        characterStackView.addArrangedSubview(characterLabel)
+
+        capitalCharacterLabel.textAlignment = .center
+        capitalCharacterLabel.font = UIFont(name: "Times New Roman", size: 80)
+        characterStackView.addArrangedSubview(capitalCharacterLabel)
     }
     
-    private func setupCharacterNameLabel() {
-        characterNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        characterNameLabel.textAlignment = .center
-        characterNameLabel.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection.init(horizontalSizeClass: .compact))
-        characterNameLabel.font = UIFont.preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection.init(horizontalSizeClass: .regular))
-        characterNameLabel.adjustsFontForContentSizeCategory = true
+    private func setupCharacterDescriptionLabel() {
+        characterDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        characterDescriptionLabel.textAlignment = .center
+        characterDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection.init(horizontalSizeClass: .compact))
+        characterDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection.init(horizontalSizeClass: .regular))
+        characterDescriptionLabel.adjustsFontForContentSizeCategory = true
     }
 }
