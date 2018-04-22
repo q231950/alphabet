@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
-        registerGestureRecognizers()
+//        registerGestureRecognizers()
         
         setupCharacterView()
         setupCharacterSelectionViewController()
