@@ -94,7 +94,9 @@ class CharacterSelectionView: UIView {
     }
     
     private func setupCharacterLabel() {
-        characterLabel.text = "\(character.character)/\(character.capitalCharacter)"
+        let small = String(describing: character.character)
+        let capital = String(describing: character.capitalCharacter)
+        characterLabel.text = "\(small)/\(capital)"
         characterLabel.font = UIFont(name: "Times New Roman", size: 20)
         characterLabel.textColor = .white
     }

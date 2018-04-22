@@ -8,63 +8,59 @@
 
 import UIKit
 
-extension ViewController: CharacterSelectable {
-    func didSelectCharacterViewModel(_ characterViewModel: CharacterViewModel) {
-        print("didSelectCharacter(\(characterViewModel.character))")
-        characterSelectionViewController.select(character: characterViewModel)
-        characterView.characterViewModel = characterViewModel
-        view.layoutIfNeeded()
-    }
-}
-
 class ViewController: UIViewController {
     
-    private let characterView = CharacterView()
-    private var characterSelectionViewController: CharacterSelectionViewController!
-    private var expandedCharacterViewConstraint: NSLayoutConstraint!
-    private var collapsedCharacterViewConstraint: NSLayoutConstraint!
-    private var panOrigin: CGPoint?
+    let stackView = UIStackView()
+    private let buttonAttributes: [NSAttributedStringKey:Any] = [.font:UIFont(name: "Times New Roman", size: 30)!, .foregroundColor: UIColor.black]
+    let alphabetButton = UIButton(type: .roundedRect)
+    let quizButton = UIButton(type: .roundedRect)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
+        setupAlphabetButton()
+        setupQuizButton()
+        setupStackView()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         
-        setupCharacterView()
-        setupCharacterSelectionViewController()
+        stackView.axis = traitCollection.horizontalSizeClass == .compact ? .vertical : .horizontal
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let character = CharacterViewModel(character: "α", capitalCharacter: "Α", name: "alpha".localizedLowercase)
-        characterView.characterViewModel = character
-        characterSelectionViewController.select(character: character)
-    }
-    
-    private func setupCharacterView() {
-        view.addSubview(characterView)
-        characterView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupStackView() {
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
         NSLayoutConstraint.activate([
-            characterView.topAnchor.constraint(equalTo: view.topAnchor),
-            characterView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            characterView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             ])
+        stackView.addArrangedSubview(alphabetButton)
+        stackView.addArrangedSubview(quizButton)
     }
     
-    private func setupCharacterSelectionViewController() {
-        addChildViewController(characterSelectionViewController)
-        view.addSubview(characterSelectionViewController.view)
-        characterSelectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        let heightConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 0.35, constant: 0)
-        heightConstraint.priority = .defaultLow
-        NSLayoutConstraint.activate([
-            heightConstraint,
-            characterSelectionViewController.view.topAnchor.constraint(equalTo: characterView.bottomAnchor),
-            characterSelectionViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-            characterSelectionViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            characterSelectionViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
-            ])
+    private func setupAlphabetButton() {
+        let title = NSAttributedString(string: "Scientific Greek Alphabet", attributes: buttonAttributes)
+        alphabetButton.setAttributedTitle(title, for: .normal)
+        alphabetButton.addTarget(self, action: #selector(ViewController.didTapAlphabetButton), for: .touchUpInside)
     }
+    
+    @objc func didTapAlphabetButton() {
+        let alphabetViewController = AlphabetViewController()
+        navigationController?.pushViewController(alphabetViewController, animated: true)
+    }
+    
+    private func setupQuizButton() {
+        let title = NSAttributedString(string: "Alphabet Quiz", attributes: buttonAttributes)
+        quizButton.setAttributedTitle(title, for: .normal)
+    }
+    
 }
-
