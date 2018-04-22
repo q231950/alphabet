@@ -112,7 +112,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func animate(duration: Double = 1, animations: @escaping () -> Swift.Void) {
+    private func animate(duration: Double = 0.3, animations: @escaping () -> Swift.Void) {
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             animations()
             self.view.layoutIfNeeded()

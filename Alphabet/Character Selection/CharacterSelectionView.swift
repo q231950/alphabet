@@ -15,8 +15,10 @@ protocol CharacterSelectable {
 class CharacterSelectionView: UIView {
     let character: CharacterViewModel
     var characterSelectable: CharacterSelectable?
+    let characterLabel = UILabel()
+    let characterDescriptionLabel = UILabel()
+    let stackView = UIStackView()
     let button: UIButton = UIButton(type: UIButtonType.roundedRect)
-    let buttonInsets = UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8)
     let borderView = UIView()
     public var selected: Bool {
         didSet {
@@ -24,11 +26,11 @@ class CharacterSelectionView: UIView {
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        get {
-            let contentSize = button.intrinsicContentSize
-            return CGSize(width: buttonInsets.left + contentSize.width + buttonInsets.right,
-                          height: contentSize.height)
+    public var layoutAxis: UILayoutConstraintAxis? {
+        didSet {
+            if let layoutAxis = layoutAxis {
+                stackView.axis = layoutAxis
+            }
         }
     }
     
@@ -38,8 +40,11 @@ class CharacterSelectionView: UIView {
         self.selected = false
         
         super.init(frame: .zero)
+        setupStackView()
         setupSelectionBorder()
         setupButton()
+        setupCharacterLabel()
+        setupCharacterDescriptionLabel()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,10 +53,29 @@ class CharacterSelectionView: UIView {
         super.init(coder: aDecoder)
     }
     
+    private func setupStackView() {
+        addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            ])
+        stackView.addArrangedSubview(characterLabel)
+        stackView.addArrangedSubview(characterDescriptionLabel)
+    }
+    
     private func setupSelectionBorder() {
         addSubview(borderView)
-        borderView.isHidden = true
         borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.isHidden = true
         borderView.layer.borderColor = UIColor(white: 1, alpha: 0.5).cgColor
         borderView.layer.backgroundColor = UIColor(white: 0, alpha: 0.1).cgColor
         borderView.layer.borderWidth = 1
@@ -69,18 +93,28 @@ class CharacterSelectionView: UIView {
         selected = true
     }
     
+    private func setupCharacterLabel() {
+        characterLabel.text = "\(character.character)/\(character.capitalCharacter)"
+        characterLabel.font = UIFont(name: "Times New Roman", size: 20)
+        characterLabel.textColor = .white
+    }
+    
+    private func setupCharacterDescriptionLabel() {
+        characterDescriptionLabel.text = "\(character.character)/\(character.capitalCharacter)"
+        characterDescriptionLabel.font = UIFont(name: "Times New Roman", size: 20)
+        characterDescriptionLabel.textColor = .white
+        characterDescriptionLabel.text = character.name
+    }
+    
     private func setupButton() {
-        button.setTitle(character.name, for: .normal)
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(didPressButton), for:.touchUpInside)
-        button.titleEdgeInsets = buttonInsets
         addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(didPressButton), for:.touchUpInside)
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: topAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
-            button.leftAnchor.constraint(equalTo: leftAnchor),
-            button.rightAnchor.constraint(equalTo: rightAnchor),
             ])
     }
 }

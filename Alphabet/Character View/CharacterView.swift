@@ -57,7 +57,7 @@ class CharacterView: UIView {
     
     private func setupCharacterLabels() {
         characterStackView.axis = .horizontal
-        characterStackView.distribution = .fillProportionally
+        characterStackView.distribution = .fillEqually
         characterStackView.alignment = .center
         characterStackView.translatesAutoresizingMaskIntoConstraints = false
         characterStackView.isLayoutMarginsRelativeArrangement = true

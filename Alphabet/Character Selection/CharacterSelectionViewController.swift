@@ -14,7 +14,7 @@ class CharacterSelectionViewController: UIViewController {
     private let stackView = UIStackView()
     private var characterSelectionViews = [CharacterSelectionView]()
     private let stackViewEdgeSpacing: CGFloat = 20
-    private let stackViewSpacing: CGFloat = 20
+    private let stackViewSpacing: CGFloat = 30
     private let characterSelectable: CharacterSelectable?
     private let alphabet: AlphabetViewModel
     
@@ -48,8 +48,16 @@ class CharacterSelectionViewController: UIViewController {
     }
     
     func select(character: CharacterViewModel) {
-        characterSelectionViews.forEach { (characterView) in
+        characterSelectionViews.forEach { characterView in
             characterView.selected = characterView.character == character
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        let axis = traitCollection.verticalSizeClass == .regular ? UILayoutConstraintAxis.vertical : UILayoutConstraintAxis.horizontal
+        characterSelectionViews.forEach { selectionView in
+            selectionView.layoutAxis = axis
         }
     }
     
@@ -71,9 +79,9 @@ class CharacterSelectionViewController: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: stackViewEdgeSpacing, left: stackViewEdgeSpacing, bottom: stackViewEdgeSpacing, right: stackViewEdgeSpacing)
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.topAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.bottomAnchor),
             ])
     }
@@ -85,9 +93,9 @@ class CharacterSelectionViewController: UIViewController {
         scrollView.indicatorStyle = .white
         scrollView.clipsToBounds = false
         NSLayoutConstraint.activate([
-            scrollView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             ])
     }
