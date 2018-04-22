@@ -78,8 +78,7 @@ class CharacterView: UIView {
     private func setupCharacterDescriptionLabel() {
         characterDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         characterDescriptionLabel.textAlignment = .center
-        characterDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection.init(horizontalSizeClass: .compact))
-        characterDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .title2, compatibleWith: UITraitCollection.init(horizontalSizeClass: .regular))
+        characterDescriptionLabel.font = UIFont(name: "Times New Roman", size: 40)
         characterDescriptionLabel.adjustsFontForContentSizeCategory = true
     }
 }
