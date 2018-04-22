@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; };
+		FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EF0208D133100FED3FF /* AlphabetViewController.swift */; };
 		FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8F89208219DD00E9E484 /* AppDelegate.swift */; };
 		FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8F8B208219DD00E9E484 /* ViewController.swift */; };
 		FD8A8F8F208219DD00E9E484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8A8F8D208219DD00E9E484 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetQuizViewController.swift; sourceTree = "<group>"; };
+		FD574EF0208D133100FED3FF /* AlphabetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewController.swift; sourceTree = "<group>"; };
 		FD8A8F86208219DD00E9E484 /* Alphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8A8F89208219DD00E9E484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD8A8F8B208219DD00E9E484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 			children = (
 				FD8A8F89208219DD00E9E484 /* AppDelegate.swift */,
 				FD8A8F8B208219DD00E9E484 /* ViewController.swift */,
+				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
+				FD574EF0208D133100FED3FF /* AlphabetViewController.swift */,
 				FD8A8FB620826A5D00E9E484 /* View Models */,
 				FD8A8FB12082261C00E9E484 /* Extensions */,
 				FD8A8FAE2082259800E9E484 /* Character Selection */,
@@ -250,9 +256,11 @@
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
+				FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */,
 				FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */,
 				FD8A8FAC20821A9600E9E484 /* CharacterView.swift in Sources */,
 				FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */,
+				FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */,
 				FD8A8FB52082673700E9E484 /* CharacterViewModel.swift in Sources */,
 				FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */,
 			);
