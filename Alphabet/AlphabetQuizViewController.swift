@@ -6,4 +6,14 @@
 //  Copyright © 2018 elbedev. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class AlphabetQuizViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Alphabet Quiz"
+    }
+    
+}

@@ -25,6 +25,8 @@ class AlphabetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Scientific Greek Alphabet"
+        
         characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
         setupCharacterView()
