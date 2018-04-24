@@ -14,6 +14,8 @@ class AlphabetQuizViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Alphabet Quiz"
+        
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
     }
     
 }

@@ -26,6 +26,8 @@ class AlphabetViewController: UIViewController {
         
         title = "Scientific Greek Alphabet"
         
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
         characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
         setupCharacterView()

@@ -31,8 +31,6 @@ class CharacterView: UIView {
         setupCharacterLabels()
         setupCharacterDescriptionLabel()
         setupVerticalStackView(views: [characterStackView, characterDescriptionLabel])
-        
-        backgroundColor = UIColor(white: 0.95, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
