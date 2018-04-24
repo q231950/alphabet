@@ -55,9 +55,9 @@ class CharacterSelectionViewController: UIViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        let axis = traitCollection.verticalSizeClass == .regular ? UILayoutConstraintAxis.vertical : UILayoutConstraintAxis.horizontal
+
         characterSelectionViews.forEach { selectionView in
-            selectionView.layoutAxis = axis
+            selectionView.layoutAxis = UITraitCollection.axis(for: traitCollection)
         }
     }
     
