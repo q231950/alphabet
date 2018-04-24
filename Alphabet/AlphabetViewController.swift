@@ -20,7 +20,6 @@ class AlphabetViewController: UIViewController {
     
     private let characterView = CharacterView()
     private var characterSelectionViewController: CharacterSelectionViewController!
-    private var panOrigin: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +54,7 @@ class AlphabetViewController: UIViewController {
         addChildViewController(characterSelectionViewController)
         view.addSubview(characterSelectionViewController.view)
         characterSelectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        let heightConstraint = NSLayoutConstraint(item: characterSelectionViewController.view, attribute: .height, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 0.35, constant: 0)
-        heightConstraint.priority = .defaultLow
         NSLayoutConstraint.activate([
-            heightConstraint,
             characterSelectionViewController.view.topAnchor.constraint(equalTo: characterView.bottomAnchor),
             characterSelectionViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
             characterSelectionViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
