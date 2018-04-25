@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension AlphabetViewController: CharacterSelectable {
+extension AlphabetViewController {
     func didSelectCharacterViewModel(_ characterViewModel: CharacterViewModel) {
         characterSelectionViewController.select(character: characterViewModel)
         characterView.characterViewModel = characterViewModel
@@ -16,10 +16,10 @@ extension AlphabetViewController: CharacterSelectable {
     }
 }
 
-class AlphabetViewController: UIViewController {
+class AlphabetViewController: UIViewController, CharacterViewContaining, CharacterSelectable {
     
-    private let characterView = CharacterView()
-    private var characterSelectionViewController: CharacterSelectionViewController!
+    fileprivate let characterView = CharacterView()
+    fileprivate var characterSelectionViewController: CharacterSelectionViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class AlphabetViewController: UIViewController {
         
         characterSelectionViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
-        setupCharacterView()
+        setupCharacterView(characterView)
         setupCharacterSelectionViewController()
     }
     
@@ -40,16 +40,6 @@ class AlphabetViewController: UIViewController {
         let character = CharacterViewModel(character: "α", capitalCharacter: "Α", name: "alpha".localizedLowercase)
         characterView.characterViewModel = character
         characterSelectionViewController.select(character: character)
-    }
-    
-    private func setupCharacterView() {
-        view.addSubview(characterView)
-        characterView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            characterView.topAnchor.constraint(equalTo: view.topAnchor),
-            characterView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            characterView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            ])
     }
     
     private func setupCharacterSelectionViewController() {

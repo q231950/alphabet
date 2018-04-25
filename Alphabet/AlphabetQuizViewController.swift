@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AlphabetQuizViewController: UIViewController {
+class AlphabetQuizViewController: UIViewController, CharacterViewContaining {
+    
+    var characterView = CharacterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +18,8 @@ class AlphabetQuizViewController: UIViewController {
         title = "Alphabet Quiz"
         
         view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
+        self.setupCharacterView(characterView)
     }
     
 }
