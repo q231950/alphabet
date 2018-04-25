@@ -14,16 +14,13 @@ class CharacterView: UIView {
     let characterLabel = UILabel()
     let capitalCharacterLabel = UILabel()
     let characterDescriptionLabel = UILabel()
-    let characterStackView = UIStackView()
-    let verticalStackView = UIStackView()
-    
-    var characterViewModel: CharacterViewModel? {
+    var isCharacterDescriptionLabelHidden: Bool = false {
         didSet {
-            characterLabel.text = characterViewModel?.character
-            capitalCharacterLabel.text = characterViewModel?.capitalCharacter
-            characterDescriptionLabel.text = characterViewModel?.name
+            characterDescriptionLabel.isHidden = isCharacterDescriptionLabelHidden
         }
     }
+    let characterStackView = UIStackView()
+    let verticalStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

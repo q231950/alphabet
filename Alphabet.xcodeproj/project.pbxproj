@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD54850E2091042F007D16F5 /* CharacterSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850D2091042F007D16F5 /* CharacterSelectable.swift */; };
+		FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */; };
+		FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850F20910D9B007D16F5 /* CharacterViewController.swift */; };
 		FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; };
 		FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EF0208D133100FED3FF /* AlphabetViewController.swift */; };
 		FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8F89208219DD00E9E484 /* AppDelegate.swift */; };
@@ -36,7 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD54850D2091042F007D16F5 /* CharacterSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectable.swift; sourceTree = "<group>"; };
+		FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomViewControllerContaining.swift; sourceTree = "<group>"; };
+		FD54850F20910D9B007D16F5 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetQuizViewController.swift; sourceTree = "<group>"; };
 		FD574EF0208D133100FED3FF /* AlphabetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewController.swift; sourceTree = "<group>"; };
 		FD8A8F86208219DD00E9E484 /* Alphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +106,7 @@
 				FD8A8FB620826A5D00E9E484 /* View Models */,
 				FD8A8FB12082261C00E9E484 /* Extensions + Protocols */,
 				FD8A8FAE2082259800E9E484 /* Character Selection */,
-				FD8A8FAD2082238F00E9E484 /* Character View */,
+				FD8A8FAD2082238F00E9E484 /* Character */,
 				FD8A8F8D208219DD00E9E484 /* Main.storyboard */,
 				FD8A8F90208219DE00E9E484 /* Assets.xcassets */,
 				FD8A8F92208219DE00E9E484 /* LaunchScreen.storyboard */,
@@ -122,12 +124,13 @@
 			path = AlphabetUITests;
 			sourceTree = "<group>";
 		};
-		FD8A8FAD2082238F00E9E484 /* Character View */ = {
+		FD8A8FAD2082238F00E9E484 /* Character */ = {
 			isa = PBXGroup;
 			children = (
 				FD8A8FAB20821A9600E9E484 /* CharacterView.swift */,
+				FD54850F20910D9B007D16F5 /* CharacterViewController.swift */,
 			);
-			path = "Character View";
+			path = Character;
 			sourceTree = "<group>";
 		};
 		FD8A8FAE2082259800E9E484 /* Character Selection */ = {
@@ -144,7 +147,7 @@
 			children = (
 				FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */,
 				FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */,
-				FD54850D2091042F007D16F5 /* CharacterSelectable.swift */,
+				FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */,
 			);
 			path = "Extensions + Protocols";
 			sourceTree = "<group>";
@@ -262,9 +265,10 @@
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
+				FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */,
 				FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */,
 				FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */,
-				FD54850E2091042F007D16F5 /* CharacterSelectable.swift in Sources */,
+				FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */,
 				FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */,
 				FD8A8FAC20821A9600E9E484 /* CharacterView.swift in Sources */,
 				FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */,

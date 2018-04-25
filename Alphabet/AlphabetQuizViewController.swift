@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AlphabetQuizViewController: UIViewController, CharacterViewContaining {
+class AlphabetQuizViewController: UIViewController, TopBottomViewControllerContaining {
+    var topViewController: CharacterViewController? = CharacterViewController()
+    var bottomViewController: UIViewController? = UIViewController()
     
-    var characterView = CharacterView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,15 @@ class AlphabetQuizViewController: UIViewController, CharacterViewContaining {
         
         view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
-        self.setupCharacterView(characterView)
+        setupTopViewController()
+        setupBottomViewController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let character = CharacterViewModel(character: "α", capitalCharacter: "Α", name: "alpha".localizedLowercase)
+        topViewController?.characterViewModel = character
+    }
+
 }
