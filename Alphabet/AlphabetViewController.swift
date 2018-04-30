@@ -29,8 +29,7 @@ class AlphabetViewController: UIViewController, TopBottomViewControllerContainin
         
         bottomViewController = CharacterSelectionViewController(alphabet: .scientific, characterSelectable: self)
         
-        setupTopViewController()
-        setupBottomViewController()
+        setupViewControllers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,4 +40,3 @@ class AlphabetViewController: UIViewController, TopBottomViewControllerContainin
         bottomViewController?.select(character: character)
     }
 }
-

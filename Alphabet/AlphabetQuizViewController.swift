@@ -12,7 +12,6 @@ class AlphabetQuizViewController: UIViewController, TopBottomViewControllerConta
     var topViewController: CharacterViewController? = CharacterViewController()
     var bottomViewController: UIViewController? = UIViewController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +19,7 @@ class AlphabetQuizViewController: UIViewController, TopBottomViewControllerConta
         
         view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
-        setupTopViewController()
-        setupBottomViewController()
+        setupViewControllers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,5 +28,4 @@ class AlphabetQuizViewController: UIViewController, TopBottomViewControllerConta
         let character = CharacterViewModel(character: "α", capitalCharacter: "Α", name: "alpha".localizedLowercase)
         topViewController?.characterViewModel = character
     }
-
 }

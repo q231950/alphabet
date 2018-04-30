@@ -15,26 +15,32 @@ protocol TopBottomViewControllerContaining where Self: UIViewController {
     associatedtype BottomViewController: UIViewController
     var bottomViewController: BottomViewController? { get }
     
-    func setupTopViewController()
-    func setupBottomViewController()
+    func setupViewControllers()
 }
 
 extension TopBottomViewControllerContaining {
     
-    func setupTopViewController() {
-        guard let subview = topViewController?.view else {
+    func setupViewControllers() {
+        setupTopViewController()
+        setupBottomViewController()
+    }
+    
+    private func setupTopViewController() {
+        guard let topViewController = topViewController, let subview = topViewController.view else {
             return
         }
+        addChildViewController(topViewController)
         view.addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: view.topAnchor),
-            subview.rightAnchor.constraint(equalTo: view.rightAnchor),
-            subview.leftAnchor.constraint(equalTo: view.leftAnchor),
+            subview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            subview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            subview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             ])
     }
     
-    func setupBottomViewController() {
+    private func setupBottomViewController() {
         guard let bottomViewController = bottomViewController, let topViewController = topViewController else {
             print("top/bottom view controllers need to be set for TopBottomContainerViewController")
             return
@@ -43,10 +49,10 @@ extension TopBottomViewControllerContaining {
         view.addSubview(bottomViewController.view)
         bottomViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            bottomViewController.view.topAnchor.constraint(equalTo: topViewController.view.bottomAnchor),
-            bottomViewController.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+            bottomViewController.view.topAnchor.constraint(equalTo: topViewController.view.safeAreaLayoutGuide.bottomAnchor),
+            bottomViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomViewController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            bottomViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             ])
     }
 }

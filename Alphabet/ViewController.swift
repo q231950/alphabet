@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let stackView = UIStackView()
     let alphabetButton = UIButton(type: .roundedRect)
     let quizButton = UIButton(type: .roundedRect)
+    let buttonContentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +37,13 @@ class ViewController: UIViewController {
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 10
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalCentering
         stackView.alignment = .center
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             ])
@@ -53,6 +54,9 @@ class ViewController: UIViewController {
     private func setupAlphabetButton() {
         updateButtonTitle(button: alphabetButton, title: "Scientific Greek Alphabet")
         alphabetButton.addTarget(self, action: #selector(ViewController.didTapAlphabetButton), for: .touchUpInside)
+        alphabetButton.layer.backgroundColor = UIColor(white: 0.9, alpha: 1).cgColor
+        alphabetButton.layer.cornerRadius = 5
+        alphabetButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
     }
     
     @objc func didTapAlphabetButton() {
@@ -63,6 +67,9 @@ class ViewController: UIViewController {
     private func setupQuizButton() {
         updateButtonTitle(button: quizButton, title: "Alphabet Quiz")
         quizButton.addTarget(self, action: #selector(ViewController.didTapQuizButton), for: .touchUpInside)
+        quizButton.layer.backgroundColor = UIColor(white: 0.9, alpha: 1).cgColor
+        quizButton.layer.cornerRadius = 5
+        quizButton.contentEdgeInsets = buttonContentEdgeInsets
     }
     
     private func updateButtonTitle(button: UIButton, title: String?) {

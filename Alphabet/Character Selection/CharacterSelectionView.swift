@@ -61,7 +61,7 @@ class CharacterSelectionView: UIView {
         stackView.distribution = .fillEqually
         stackView.alignment = .center
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -76,9 +76,7 @@ class CharacterSelectionView: UIView {
         addSubview(borderView)
         borderView.translatesAutoresizingMaskIntoConstraints = false
         borderView.isHidden = true
-        borderView.layer.borderColor = UIColor(white: 1, alpha: 0.5).cgColor
         borderView.layer.backgroundColor = UIColor(white: 0, alpha: 0.1).cgColor
-        borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 3
         NSLayoutConstraint.activate([
             borderView.topAnchor.constraint(equalTo: topAnchor),
