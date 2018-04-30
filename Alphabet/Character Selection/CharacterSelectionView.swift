@@ -87,8 +87,8 @@ class CharacterSelectionView: UIView {
     }
     
     @objc func didPressButton() {
-        characterSelectable?.didSelectCharacterViewModel(character)
         selected = true
+        characterSelectable?.didSelectCharacterViewModel(character)
     }
     
     private func setupCharacterLabel() {

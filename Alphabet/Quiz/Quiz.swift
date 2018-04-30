@@ -25,10 +25,18 @@ class Quiz {
     }
     
     func currentTask() -> CharacterViewModel? {
+        guard index < tasks.count else {
+            return nil
+        }
+        
         return tasks[index]
     }
     
     func solveTask(solution: CharacterViewModel) -> Bool {
+        guard index < tasks.count else {
+            return false
+        }
+
         let task = tasks[index]
         index += 1
         return task == solution

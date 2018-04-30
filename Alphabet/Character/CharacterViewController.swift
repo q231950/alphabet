@@ -15,6 +15,22 @@ class CharacterViewController: UIViewController {
             updateView(with: characterViewModel)
         }
     }
+    var quizMode: Bool = false {
+        didSet {
+            characterView.isCharacterDescriptionLabelHidden = quizMode
+        }
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        characterView = CharacterView()
+        view = characterView
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -22,13 +38,6 @@ class CharacterViewController: UIViewController {
         updateView(with: characterViewModel)
     }
 
-    override func loadView() {
-        super.loadView()
-        
-        characterView = CharacterView()
-        view = characterView
-    }
-    
     private func updateView(with characterViewModel: CharacterViewModel?) {
         guard let characterViewModel = characterViewModel else {
             return

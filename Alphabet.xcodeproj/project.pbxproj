@@ -26,6 +26,7 @@
 		FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */; };
 		FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */; };
 		FDA9BC11209788D900E9AD83 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC10209788D900E9AD83 /* Quiz.swift */; };
+		FDA9BC1320979E5A00E9AD83 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC1220979E5A00E9AD83 /* ResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		FDA9BC10209788D900E9AD83 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		FDA9BC1220979E5A00E9AD83 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
 				FDA9BC10209788D900E9AD83 /* Quiz.swift */,
+				FDA9BC1220979E5A00E9AD83 /* ResultView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
 				FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */,
+				FDA9BC1320979E5A00E9AD83 /* ResultView.swift in Sources */,
 				FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */,
 				FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */,
 				FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */,
