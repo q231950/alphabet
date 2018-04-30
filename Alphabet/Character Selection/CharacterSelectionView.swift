@@ -94,16 +94,17 @@ class CharacterSelectionView: UIView {
     private func setupCharacterLabel() {
         let small = String(describing: character.character)
         let capital = String(describing: character.capitalCharacter)
-        characterLabel.text = "\(small)/\(capital)"
-        characterLabel.font = UIFont(name: "Times New Roman", size: 20)
-        characterLabel.textColor = .white
+        characterLabel.attributedText = NSAttributedString(
+            string: "\(small)/\(capital)",
+            style: .largeDarkButtonStyle,
+            traitCollection: traitCollection)
     }
     
     private func setupCharacterDescriptionLabel() {
-        characterDescriptionLabel.text = "\(character.character)/\(character.capitalCharacter)"
-        characterDescriptionLabel.font = UIFont(name: "Times New Roman", size: 20)
-        characterDescriptionLabel.textColor = .white
-        characterDescriptionLabel.text = character.name
+        characterDescriptionLabel.attributedText = NSAttributedString(
+            string: character.name,
+            style: .largeDarkButtonStyle,
+            traitCollection: traitCollection)
     }
     
     private func setupButton() {

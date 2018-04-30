@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         stackView.distribution = .equalCentering
         stackView.alignment = .center
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 40, bottom: 20, right: 40)
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         alphabetButton.addTarget(self, action: #selector(ViewController.didTapAlphabetButton), for: .touchUpInside)
         alphabetButton.layer.backgroundColor = UIColor(white: 0.9, alpha: 1).cgColor
         alphabetButton.layer.cornerRadius = 5
-        alphabetButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        alphabetButton.contentEdgeInsets = buttonContentEdgeInsets
     }
     
     @objc func didTapAlphabetButton() {
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             return
         }
         
-        let attributedTitle = NSAttributedString(string: title, attributes: buttonAttributes())
+        let attributedTitle = NSAttributedString(string: title, style: .largeButtonStyle, traitCollection: traitCollection)
         button.setAttributedTitle(attributedTitle, for: .normal)
     }
     
@@ -90,14 +90,5 @@ class ViewController: UIViewController {
     @objc func didTapQuizButton() {
         let quizViewController = AlphabetQuizViewController()
         navigationController?.pushViewController(quizViewController, animated: true)
-    }
-    
-    private func buttonAttributes() -> [NSAttributedStringKey:Any] {
-        let size: CGFloat = traitCollection.horizontalSizeClass == .regular ? 30 : 20
-        let font = UIFont(name: "Times New Roman", size: size)!
-        return [
-            .font:font,
-            .foregroundColor: UIColor.black
-        ]
     }
 }

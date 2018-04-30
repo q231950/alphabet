@@ -24,6 +24,7 @@
 		FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */; };
 		FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */; };
 		FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */; };
+		FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewModel.swift; sourceTree = "<group>"; };
 		FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewController.swift; sourceTree = "<group>"; };
 		FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
+		FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				FD8A8FB22082263200E9E484 /* UIViewExtensions.swift */,
 				FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */,
 				FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */,
+				FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */,
 			);
 			path = "Extensions + Protocols";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */,
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
