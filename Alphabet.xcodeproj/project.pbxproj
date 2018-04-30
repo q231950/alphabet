@@ -25,6 +25,7 @@
 		FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */; };
 		FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */; };
 		FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */; };
+		FDA9BC11209788D900E9AD83 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC10209788D900E9AD83 /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		FD8A8FB920826CEA00E9E484 /* CharacterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionViewController.swift; sourceTree = "<group>"; };
 		FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
+		FDA9BC10209788D900E9AD83 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,7 @@
 			children = (
 				FD8A8F89208219DD00E9E484 /* AppDelegate.swift */,
 				FD8A8F8B208219DD00E9E484 /* ViewController.swift */,
-				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
+				FDA9BC0D2097887700E9AD83 /* Quiz */,
 				FD574EF0208D133100FED3FF /* AlphabetViewController.swift */,
 				FD8A8FB620826A5D00E9E484 /* View Models */,
 				FD8A8FB12082261C00E9E484 /* Extensions + Protocols */,
@@ -162,6 +164,15 @@
 				FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		FDA9BC0D2097887700E9AD83 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
+				FDA9BC10209788D900E9AD83 /* Quiz.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 				FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */,
 				FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */,
 				FD8A8FB52082673700E9E484 /* CharacterViewModel.swift in Sources */,
+				FDA9BC11209788D900E9AD83 /* Quiz.swift in Sources */,
 				FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

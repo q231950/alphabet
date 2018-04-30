@@ -47,12 +47,16 @@ class CharacterSelectionViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    func select(character: CharacterViewModel) {
+    func select(character: CharacterViewModel?) {
         characterSelectionViews.forEach { characterView in
             characterView.selected = characterView.character == character
         }
     }
     
+    func clearSelection() {
+        select(character: nil)
+    }
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 

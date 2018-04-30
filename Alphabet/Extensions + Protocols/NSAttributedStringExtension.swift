@@ -30,7 +30,6 @@ extension NSAttributedString {
             attributes = NSAttributedString.largeTextAttributes(for: traitCollection, color: .black)
         }
     
-        
         self.init(string: string, attributes: attributes)
     }
     
@@ -66,6 +65,7 @@ extension NSAttributedString {
         return attributes(color: color, textStyle:textStyle)
     }
     
+    /// @return the attributes for the default font with the given color and text style
     private static func attributes(color: UIColor, textStyle: UIFontTextStyle) -> [NSAttributedStringKey: Any] {
         let fontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
         let pointSize = fontDescriptor.pointSize
