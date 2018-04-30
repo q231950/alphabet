@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 class CharacterView: UIView {
     
-    let characterLabel = UILabel()
-    let capitalCharacterLabel = UILabel()
+    private let characterLabel = UILabel()
+    private let capitalCharacterLabel = UILabel()
     let characterDescriptionLabel = UILabel()
     var isCharacterDescriptionLabelHidden: Bool = false {
         didSet {
@@ -32,6 +32,15 @@ class CharacterView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func update(character: String, capitalCharacter: String, description: String) {
+        characterLabel.attributedText = NSAttributedString(string: character,
+                                                           style: .largeCharacterStyle, traitCollection: traitCollection)
+        capitalCharacterLabel.attributedText = NSAttributedString(string: capitalCharacter,
+                                                                  style: .largeCharacterStyle, traitCollection: traitCollection)
+        characterDescriptionLabel.attributedText = NSAttributedString(string: description,
+                                                                  style: .largeTextStyle, traitCollection: traitCollection)
     }
 
     private func setupVerticalStackView(views: [UIView]) {

@@ -12,10 +12,14 @@ class CharacterViewController: UIViewController {
     var characterView: CharacterView!
     var characterViewModel: CharacterViewModel? {
         didSet {
-            characterView.characterLabel.text = characterViewModel?.character
-            characterView.capitalCharacterLabel.text = characterViewModel?.capitalCharacter
-            characterView.characterDescriptionLabel.text = characterViewModel?.name
+            updateView(with: characterViewModel)
         }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        updateView(with: characterViewModel)
     }
 
     override func loadView() {
@@ -23,5 +27,15 @@ class CharacterViewController: UIViewController {
         
         characterView = CharacterView()
         view = characterView
+    }
+    
+    private func updateView(with characterViewModel: CharacterViewModel?) {
+        guard let characterViewModel = characterViewModel else {
+            return
+        }
+        
+        characterView.update(character: characterViewModel.character,
+                             capitalCharacter: characterViewModel.capitalCharacter,
+                             description: characterViewModel.name)
     }
 }
