@@ -31,6 +31,31 @@ class QuizTests: XCTestCase {
         XCTAssertNotNil(quiz.currentTask())
     }
 
+    func testNumberOfTasks() {
+        XCTAssertEqual(quiz.tasks.count, 4)
+    }
+
+    func testTaskUniqueness() {
+        var tasks = [QuizTask: Int]()
+        for task in quiz.tasks {
+            tasks[task] = (tasks[task] ?? 0) + 1
+        }
+
+        let nonUniqueTasks = tasks.filter { (task, occurrences) -> Bool in
+            occurrences != 1
+        }
+        XCTAssertEqual(nonUniqueTasks.count, 0, "Each task must be unique.")
+    }
+
+    func testQuizFinishes() {
+        for _ in 0...3 {
+            _ = quiz.solveTask(solution: solution)
+        }
+
+        let offByOneTask = quiz.currentTask()
+        XCTAssertNil(offByOneTask)
+    }
+
     func testSolvingAdvancesCurrentTask() {
         let currentTask = quiz.currentTask()
         _ = quiz.solveTask(solution: solution)

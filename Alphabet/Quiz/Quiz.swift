@@ -10,7 +10,7 @@ import Foundation
 
 public class Quiz {
     private let alphabet: AlphabetViewModel
-    private var tasks = [QuizTask]()
+    internal var tasks = [QuizTask]()
     private var index: Int = 0
     
     public init(alphabet: AlphabetViewModel) {
@@ -20,7 +20,7 @@ public class Quiz {
     
     func currentTask() -> QuizTask? {
         if index >= tasks.count {
-            index = 0
+            return nil
         }
         
         return tasks[index]
@@ -40,7 +40,7 @@ public class Quiz {
     private func setupTasks() {
         var randomTasks = [UInt32: QuizTask]()
         for (_, character) in alphabet.characters.enumerated() {
-            let random = arc4random_uniform(UInt32(alphabet.characters.count))
+            let random = generateRandom(notContainedIn: randomTasks, elements: alphabet.characters)
             let optionsForCharacter = self.choices(for: character, options: alphabet.characters)
             var choices = randomize(elements: optionsForCharacter)
             choices = Array(choices[0...2])

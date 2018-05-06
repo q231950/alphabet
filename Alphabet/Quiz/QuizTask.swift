@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct QuizTask: Equatable {
+struct QuizTask: Equatable, Hashable {
     let solution: CharacterViewModel
     let choices: [CharacterViewModel]
+
+    var hashValue: Int {
+        return solution.character.hashValue
+    }
 }
