@@ -1,5 +1,5 @@
 //
-//  ResultView.swift
+//  TaskResultView.swift
 //  Alphabet
 //
 //  Created by Kim Dung-Pham on 30.04.18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultView: UIView {
+class TaskSolutionView: UIView {
     
     let resultLabel = UILabel()
     

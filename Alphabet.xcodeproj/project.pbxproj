@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B39E26C209B0E9300E454E4 /* QuizChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39E26B209B0E9300E454E4 /* QuizChoiceViewController.swift */; };
+		3B5136A2209B1A0E0081ADB1 /* QuizTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5136A1209B1A0E0081ADB1 /* QuizTask.swift */; };
+		3B98A286209DE581001DD19F /* AlphabetViewModel.swift in Headers */ = {isa = PBXBuildFile; fileRef = FD8A8FB720826A6B00E9E484 /* AlphabetViewModel.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B98A287209DE5F6001DD19F /* AlphabetQuizViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B9C4E11209DEBF6008869C2 /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E10209DEBF6008869C2 /* QuizTests.swift */; };
+		3B9C4E19209DECD4008869C2 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E18209DECD4008869C2 /* TaskTests.swift */; };
 		FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */; };
 		FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850F20910D9B007D16F5 /* CharacterViewController.swift */; };
 		FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; };
@@ -26,10 +32,17 @@
 		FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */; };
 		FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */; };
 		FDA9BC11209788D900E9AD83 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC10209788D900E9AD83 /* Quiz.swift */; };
-		FDA9BC1320979E5A00E9AD83 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC1220979E5A00E9AD83 /* ResultView.swift */; };
+		FDA9BC1320979E5A00E9AD83 /* TaskSolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA9BC1220979E5A00E9AD83 /* TaskSolutionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B9C4E13209DEBF6008869C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD8A8F7E208219DD00E9E484 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD8A8F85208219DD00E9E484;
+			remoteInfo = Alphabet;
+		};
 		FD8A8F9B208219DE00E9E484 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FD8A8F7E208219DD00E9E484 /* Project object */;
@@ -40,6 +53,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B39E26B209B0E9300E454E4 /* QuizChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizChoiceViewController.swift; sourceTree = "<group>"; };
+		3B5136A1209B1A0E0081ADB1 /* QuizTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTask.swift; sourceTree = "<group>"; };
+		3B9C4E0E209DEBF6008869C2 /* Alphabet Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alphabet Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9C4E10209DEBF6008869C2 /* QuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTests.swift; sourceTree = "<group>"; };
+		3B9C4E12209DEBF6008869C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B9C4E18209DECD4008869C2 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomViewControllerContaining.swift; sourceTree = "<group>"; };
 		FD54850F20910D9B007D16F5 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetQuizViewController.swift; sourceTree = "<group>"; };
@@ -63,10 +82,17 @@
 		FD9ACAEF208FACD000D8FF9D /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		FDA9BC0B20973ED800E9AD83 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		FDA9BC10209788D900E9AD83 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
-		FDA9BC1220979E5A00E9AD83 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		FDA9BC1220979E5A00E9AD83 /* TaskSolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSolutionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B9C4E0B209DEBF6008869C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8A8F83208219DD00E9E484 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,11 +110,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B9C4E0F209DEBF6008869C2 /* Alphabet Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3B9C4E10209DEBF6008869C2 /* QuizTests.swift */,
+				3B9C4E18209DECD4008869C2 /* TaskTests.swift */,
+				3B9C4E12209DEBF6008869C2 /* Info.plist */,
+			);
+			path = "Alphabet Tests";
+			sourceTree = "<group>";
+		};
 		FD8A8F7D208219DD00E9E484 = {
 			isa = PBXGroup;
 			children = (
 				FD8A8F88208219DD00E9E484 /* Alphabet */,
 				FD8A8F9D208219DE00E9E484 /* AlphabetUITests */,
+				3B9C4E0F209DEBF6008869C2 /* Alphabet Tests */,
 				FD8A8F87208219DD00E9E484 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +135,7 @@
 			children = (
 				FD8A8F86208219DD00E9E484 /* Alphabet.app */,
 				FD8A8F9A208219DE00E9E484 /* AlphabetUITests.xctest */,
+				3B9C4E0E209DEBF6008869C2 /* Alphabet Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,15 +210,47 @@
 			isa = PBXGroup;
 			children = (
 				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
+				3B39E26B209B0E9300E454E4 /* QuizChoiceViewController.swift */,
 				FDA9BC10209788D900E9AD83 /* Quiz.swift */,
-				FDA9BC1220979E5A00E9AD83 /* ResultView.swift */,
+				3B5136A1209B1A0E0081ADB1 /* QuizTask.swift */,
+				FDA9BC1220979E5A00E9AD83 /* TaskSolutionView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3B98A285209DE56F001DD19F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B98A286209DE581001DD19F /* AlphabetViewModel.swift in Headers */,
+				3B98A287209DE5F6001DD19F /* AlphabetQuizViewController.swift in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		3B9C4E0D209DEBF6008869C2 /* Alphabet Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B9C4E15209DEBF6008869C2 /* Build configuration list for PBXNativeTarget "Alphabet Tests" */;
+			buildPhases = (
+				3B9C4E0A209DEBF6008869C2 /* Sources */,
+				3B9C4E0B209DEBF6008869C2 /* Frameworks */,
+				3B9C4E0C209DEBF6008869C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B9C4E14209DEBF6008869C2 /* PBXTargetDependency */,
+			);
+			name = "Alphabet Tests";
+			productName = "Alphabet Tests";
+			productReference = 3B9C4E0E209DEBF6008869C2 /* Alphabet Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FD8A8F85208219DD00E9E484 /* Alphabet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD8A8FA3208219DE00E9E484 /* Build configuration list for PBXNativeTarget "Alphabet" */;
@@ -188,6 +258,7 @@
 				FD8A8F82208219DD00E9E484 /* Sources */,
 				FD8A8F83208219DD00E9E484 /* Frameworks */,
 				FD8A8F84208219DD00E9E484 /* Resources */,
+				3B98A285209DE56F001DD19F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -226,12 +297,15 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = elbedev;
 				TargetAttributes = {
+					3B9C4E0D209DEBF6008869C2 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = FD8A8F85208219DD00E9E484;
+					};
 					FD8A8F85208219DD00E9E484 = {
 						CreatedOnToolsVersion = 9.3;
 					};
 					FD8A8F99208219DE00E9E484 = {
 						CreatedOnToolsVersion = 9.3;
-						TestTargetID = FD8A8F85208219DD00E9E484;
 					};
 				};
 			};
@@ -250,11 +324,19 @@
 			targets = (
 				FD8A8F85208219DD00E9E484 /* Alphabet */,
 				FD8A8F99208219DE00E9E484 /* AlphabetUITests */,
+				3B9C4E0D209DEBF6008869C2 /* Alphabet Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B9C4E0C209DEBF6008869C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8A8F84208219DD00E9E484 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +357,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B9C4E0A209DEBF6008869C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9C4E19209DECD4008869C2 /* TaskTests.swift in Sources */,
+				3B9C4E11209DEBF6008869C2 /* QuizTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD8A8F82208219DD00E9E484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,8 +375,10 @@
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
 				FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */,
-				FDA9BC1320979E5A00E9AD83 /* ResultView.swift in Sources */,
+				3B5136A2209B1A0E0081ADB1 /* QuizTask.swift in Sources */,
+				FDA9BC1320979E5A00E9AD83 /* TaskSolutionView.swift in Sources */,
 				FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */,
+				3B39E26C209B0E9300E454E4 /* QuizChoiceViewController.swift in Sources */,
 				FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */,
 				FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */,
 				FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */,
@@ -309,6 +402,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3B9C4E14209DEBF6008869C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD8A8F85208219DD00E9E484 /* Alphabet */;
+			targetProxy = 3B9C4E13209DEBF6008869C2 /* PBXContainerItemProxy */;
+		};
 		FD8A8F9C208219DE00E9E484 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD8A8F85208219DD00E9E484 /* Alphabet */;
@@ -336,6 +434,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3B9C4E16209DEBF6008869C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X29V4JPQ55;
+				INFOPLIST_FILE = "Alphabet Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elbedev.Alphabet-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alphabet.app/Alphabet";
+			};
+			name = Debug;
+		};
+		3B9C4E17209DEBF6008869C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X29V4JPQ55;
+				INFOPLIST_FILE = "Alphabet Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elbedev.Alphabet-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alphabet.app/Alphabet";
+			};
+			name = Release;
+		};
 		FD8A8FA1208219DE00E9E484 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,7 +633,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SHZEJ2G4TN;
+				DEVELOPMENT_TEAM = X29V4JPQ55;
 				INFOPLIST_FILE = AlphabetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -504,9 +642,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elbedev.AlphabetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Alphabet;
 			};
 			name = Debug;
 		};
@@ -515,7 +653,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SHZEJ2G4TN;
+				DEVELOPMENT_TEAM = X29V4JPQ55;
 				INFOPLIST_FILE = AlphabetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -524,15 +662,24 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elbedev.AlphabetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Alphabet;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B9C4E15209DEBF6008869C2 /* Build configuration list for PBXNativeTarget "Alphabet Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B9C4E16209DEBF6008869C2 /* Debug */,
+				3B9C4E17209DEBF6008869C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD8A8F81208219DD00E9E484 /* Build configuration list for PBXProject "Alphabet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

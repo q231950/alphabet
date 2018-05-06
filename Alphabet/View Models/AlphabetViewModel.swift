@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct AlphabetViewModel {
+public struct AlphabetViewModel {
     let characters: [CharacterViewModel]
     
     init(characters: [CharacterViewModel] = []) {
         self.characters = characters
     }
 
-    static var scientific = AlphabetViewModel(characters: [
+    static let scientific = AlphabetViewModel(characters: [
         CharacterViewModel(character: "α", capitalCharacter:"Α", name: "alpha"),
         CharacterViewModel(character: "β", capitalCharacter:"Β", name: "beta"),
         CharacterViewModel(character: "γ", capitalCharacter:"Γ", name: "gamma"),
@@ -43,7 +43,7 @@ struct AlphabetViewModel {
         CharacterViewModel(character: "ω", capitalCharacter:"Ω", name: "omega"),
         ])
 
-    static var greek = AlphabetViewModel(characters: [
+    static let greek = AlphabetViewModel(characters: [
         CharacterViewModel(character: "α", capitalCharacter:"Α", name: "alpha"),
         CharacterViewModel(character: "β", capitalCharacter:"Β", name: "beta"),
         CharacterViewModel(character: "γ", capitalCharacter:"Γ", name: "gamma"),
