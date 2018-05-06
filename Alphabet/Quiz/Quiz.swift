@@ -32,11 +32,6 @@ public class Quiz {
         return task.solution == solution
     }
     
-    private func selectFirstTask() -> QuizTask? {
-        let taskInProgress = tasks.first
-        return taskInProgress
-    }
-    
     private func setupTasks() {
         var randomTasks = [UInt32: QuizTask]()
         for (_, character) in alphabet.characters.enumerated() {

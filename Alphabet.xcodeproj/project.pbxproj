@@ -13,6 +13,7 @@
 		3B98A287209DE5F6001DD19F /* AlphabetQuizViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B9C4E11209DEBF6008869C2 /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E10209DEBF6008869C2 /* QuizTests.swift */; };
 		3B9C4E19209DECD4008869C2 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E18209DECD4008869C2 /* TaskTests.swift */; };
+		3B9C4E1B209F6B29008869C2 /* CharacterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E1A209F6B29008869C2 /* CharacterViewModelTests.swift */; };
 		FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */; };
 		FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850F20910D9B007D16F5 /* CharacterViewController.swift */; };
 		FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; };
@@ -59,6 +60,7 @@
 		3B9C4E10209DEBF6008869C2 /* QuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTests.swift; sourceTree = "<group>"; };
 		3B9C4E12209DEBF6008869C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B9C4E18209DECD4008869C2 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
+		3B9C4E1A209F6B29008869C2 /* CharacterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModelTests.swift; sourceTree = "<group>"; };
 		FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomViewControllerContaining.swift; sourceTree = "<group>"; };
 		FD54850F20910D9B007D16F5 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetQuizViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				3B9C4E10209DEBF6008869C2 /* QuizTests.swift */,
 				3B9C4E18209DECD4008869C2 /* TaskTests.swift */,
 				3B9C4E12209DEBF6008869C2 /* Info.plist */,
+				3B9C4E1A209F6B29008869C2 /* CharacterViewModelTests.swift */,
 			);
 			path = "Alphabet Tests";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			files = (
 				3B9C4E19209DECD4008869C2 /* TaskTests.swift in Sources */,
 				3B9C4E11209DEBF6008869C2 /* QuizTests.swift in Sources */,
+				3B9C4E1B209F6B29008869C2 /* CharacterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
