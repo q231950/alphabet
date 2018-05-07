@@ -20,6 +20,14 @@ class QuizChoiceViewController: UIViewController {
     let buttonContentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     var buttonSolutionMapping = [UIButton: CharacterViewModel]()
     let spacing: CGFloat = 6
+    var enabled: Bool = true {
+        didSet {
+            topLeftChoice.isUserInteractionEnabled = enabled
+            topRightChoice.isUserInteractionEnabled = enabled
+            bottomLeftChoice.isUserInteractionEnabled = enabled
+            bottomRightChoice.isUserInteractionEnabled = enabled
+        }
+    }
 
     init(characterSelectable: CharacterSelectable?) {
         self.characterSelectable = characterSelectable

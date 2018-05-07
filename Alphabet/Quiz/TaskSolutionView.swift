@@ -21,8 +21,15 @@ class TaskSolutionView: UIView {
         isUserInteractionEnabled = false
     }
     
-    func showResult(success: Bool) {
-        let message = success ? "👍": "👎"
+    func showResult(_ result: ResultType) {
+        let message: String
+        switch result {
+        case .success(solution: _):
+            message = "👍"
+        case .mistake(solution: _):
+            message = "👎"
+        }
+
         resultLabel.attributedText = NSAttributedString(string: message, style: .largeCharacterStyle, traitCollection: traitCollection)
 
         UIView.animate(withDuration: 0.3, animations: {

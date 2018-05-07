@@ -26,10 +26,14 @@ public class Quiz {
         return tasks[index]
     }
     
-    func solveTask(solution: CharacterViewModel) -> Bool {
+    func solveTask(solution: CharacterViewModel) -> ResultType {
         let task = tasks[index]
         index += 1
-        return task.solution == solution
+        if task.solution == solution {
+            return .success(solution: solution)
+        } else {
+            return .mistake(solution: solution)
+        }
     }
     
     private func setupTasks() {

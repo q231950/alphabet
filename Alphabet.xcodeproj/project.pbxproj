@@ -14,6 +14,11 @@
 		3B9C4E11209DEBF6008869C2 /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E10209DEBF6008869C2 /* QuizTests.swift */; };
 		3B9C4E19209DECD4008869C2 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E18209DECD4008869C2 /* TaskTests.swift */; };
 		3B9C4E1B209F6B29008869C2 /* CharacterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E1A209F6B29008869C2 /* CharacterViewModelTests.swift */; };
+		3B9C4E1D209F6CFA008869C2 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E1C209F6CFA008869C2 /* QuizResultView.swift */; };
+		3B9C4E1F209F6D0F008869C2 /* QuizResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E1E209F6D0F008869C2 /* QuizResultViewController.swift */; };
+		3B9C4E21209FB61B008869C2 /* QuizResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E20209FB61B008869C2 /* QuizResultCoordinator.swift */; };
+		3B9C4E23209FB8F6008869C2 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E22209FB8F6008869C2 /* ResultType.swift */; };
+		3B9C4E25209FBFF0008869C2 /* QuizResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C4E24209FBFF0008869C2 /* QuizResultViewModel.swift */; };
 		FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */; };
 		FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54850F20910D9B007D16F5 /* CharacterViewController.swift */; };
 		FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */; };
@@ -61,6 +66,11 @@
 		3B9C4E12209DEBF6008869C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B9C4E18209DECD4008869C2 /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		3B9C4E1A209F6B29008869C2 /* CharacterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModelTests.swift; sourceTree = "<group>"; };
+		3B9C4E1C209F6CFA008869C2 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		3B9C4E1E209F6D0F008869C2 /* QuizResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultViewController.swift; sourceTree = "<group>"; };
+		3B9C4E20209FB61B008869C2 /* QuizResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultCoordinator.swift; sourceTree = "<group>"; };
+		3B9C4E22209FB8F6008869C2 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		3B9C4E24209FBFF0008869C2 /* QuizResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultViewModel.swift; sourceTree = "<group>"; };
 		FD54850D2091042F007D16F5 /* TopBottomViewControllerContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomViewControllerContaining.swift; sourceTree = "<group>"; };
 		FD54850F20910D9B007D16F5 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetQuizViewController.swift; sourceTree = "<group>"; };
@@ -215,8 +225,13 @@
 				FD574EEE208D128600FED3FF /* AlphabetQuizViewController.swift */,
 				3B39E26B209B0E9300E454E4 /* QuizChoiceViewController.swift */,
 				FDA9BC10209788D900E9AD83 /* Quiz.swift */,
+				3B9C4E20209FB61B008869C2 /* QuizResultCoordinator.swift */,
+				3B9C4E24209FBFF0008869C2 /* QuizResultViewModel.swift */,
+				3B9C4E22209FB8F6008869C2 /* ResultType.swift */,
 				3B5136A1209B1A0E0081ADB1 /* QuizTask.swift */,
 				FDA9BC1220979E5A00E9AD83 /* TaskSolutionView.swift */,
+				3B9C4E1C209F6CFA008869C2 /* QuizResultView.swift */,
+				3B9C4E1E209F6D0F008869C2 /* QuizResultViewController.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -377,6 +392,7 @@
 				FDA9BC0C20973ED800E9AD83 /* NSAttributedStringExtension.swift in Sources */,
 				FD8A8F8C208219DD00E9E484 /* ViewController.swift in Sources */,
 				FD8A8FB32082263200E9E484 /* UIViewExtensions.swift in Sources */,
+				3B9C4E21209FB61B008869C2 /* QuizResultCoordinator.swift in Sources */,
 				FD8A8FB0208225DE00E9E484 /* CharacterSelectionView.swift in Sources */,
 				FD54851020910D9B007D16F5 /* CharacterViewController.swift in Sources */,
 				3B5136A2209B1A0E0081ADB1 /* QuizTask.swift in Sources */,
@@ -384,13 +400,17 @@
 				FD9ACAF0208FACD000D8FF9D /* UITraitCollectionExtensions.swift in Sources */,
 				3B39E26C209B0E9300E454E4 /* QuizChoiceViewController.swift in Sources */,
 				FD574EF1208D133100FED3FF /* AlphabetViewController.swift in Sources */,
+				3B9C4E25209FBFF0008869C2 /* QuizResultViewModel.swift in Sources */,
 				FD54850E2091042F007D16F5 /* TopBottomViewControllerContaining.swift in Sources */,
 				FD8A8FBA20826CEA00E9E484 /* CharacterSelectionViewController.swift in Sources */,
 				FD8A8FAC20821A9600E9E484 /* CharacterView.swift in Sources */,
 				FD8A8FB820826A6B00E9E484 /* AlphabetViewModel.swift in Sources */,
 				FD574EEF208D128600FED3FF /* AlphabetQuizViewController.swift in Sources */,
+				3B9C4E1D209F6CFA008869C2 /* QuizResultView.swift in Sources */,
+				3B9C4E1F209F6D0F008869C2 /* QuizResultViewController.swift in Sources */,
 				FD8A8FB52082673700E9E484 /* CharacterViewModel.swift in Sources */,
 				FDA9BC11209788D900E9AD83 /* Quiz.swift in Sources */,
+				3B9C4E23209FB8F6008869C2 /* ResultType.swift in Sources */,
 				FD8A8F8A208219DD00E9E484 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
