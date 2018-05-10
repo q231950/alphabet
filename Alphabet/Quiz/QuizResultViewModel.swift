@@ -44,13 +44,13 @@ class QuizResultViewModel {
         } else if verhaeltnis > 0.6 {
             return "😲"
         } else if verhaeltnis > 0.4 {
-            return "😐"
+            return "😉"
         } else if verhaeltnis > 0.3 {
-            return "😕"
+            return "🙂"
         } else if verhaeltnis > 0.2 {
-            return "🙁"
+            return "😌"
         } else if verhaeltnis > 0.1 {
-            return "😣"
+            return "🧐"
         } else {
             return "😶"
         }
@@ -72,15 +72,17 @@ class QuizResultViewModel {
         } else if verhaeltnis > 0.7 {
             return "Good job"
         } else if verhaeltnis > 0.6 {
-            return "Getting there"
+            return "> 50%"
+        } else if verhaeltnis > 0.5 {
+            return "50/50"
         } else if verhaeltnis > 0.4 {
-            return "Medium"
+            return "Almost 50/50"
         } else if verhaeltnis > 0.3 {
-            return "Could be..."
+            return "Getting there"
         } else if verhaeltnis > 0.2 {
-            return "Repeat"
+            return "Practice a bit"
         } else if verhaeltnis > 0.1 {
-            return "Not yet okay"
+            return "Study the alphabet"
         } else {
             return "Well..."
         }

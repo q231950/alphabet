@@ -35,8 +35,9 @@ class QuizResultViewController: UIViewController {
     }
 
     @objc func didTapCloseButton() {
-        dismiss(animated: true) {
+        dismiss(animated: true) { [weak self] in
             print("done dismissing quiz result view")
+            self?.completion?()
         }
     }
 }

@@ -47,6 +47,7 @@ class QuizResultView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
         titleLabel.attributedText = viewModel.title
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor),
@@ -60,6 +61,7 @@ class QuizResultView: UIView {
         addSubview(resultLabel)
         resultLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         resultLabel.numberOfLines = 0
+        resultLabel.textAlignment = .center
         resultLabel.attributedText = viewModel.result
         NSLayoutConstraint.activate([
             resultLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: margin),
@@ -71,7 +73,7 @@ class QuizResultView: UIView {
 
     private func layoutCloseButton() {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        let title = NSAttributedString(string: "Ok", style: .largeButtonStyle, traitCollection: traitCollection)
+        let title = NSAttributedString(string: "Done", style: .largeButtonStyle, traitCollection: traitCollection)
         closeButton.setAttributedTitle(title, for: .normal)
         closeButton.layer.backgroundColor = UIColor(white: 0.9, alpha: 1).cgColor
         closeButton.layer.cornerRadius = 5

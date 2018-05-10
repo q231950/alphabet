@@ -10,23 +10,30 @@ import UIKit
 
 extension AlphabetQuizViewController: CharacterSelectable {
     func didSelectCharacterViewModel(_ characterViewModel: CharacterViewModel) {
-        let result = quiz.solveTask(solution: characterViewModel)
-        resultCoordinator.record(result)
-        resultView.showResult(result)
-        if let next = quiz.currentTask() {
-            topViewController?.characterViewModel = next.solution
-            bottomViewController?.update(with: next)
+        if let result = quiz?.solveTask(solution: characterViewModel) {
+            resultCoordinator?.record(result)
+            resultView.showResult(result)
+        }
+
+        if let next = quiz?.currentTask() {
+            updateChildViewControllers(using: next)
         } else {
-            showResults(for: quiz)
+            showResults()
         }
     }
 }
 
 class AlphabetQuizViewController: UIViewController, TopBottomViewControllerContaining {
-    let resultCoordinator = QuizResultCoordinator()
+    var resultCoordinator: QuizResultCoordinator?
     var topViewController: CharacterViewController?
     var bottomViewController: QuizChoiceViewController?
-    fileprivate let quiz = Quiz(alphabet: .scientific)
+    fileprivate var quiz: Quiz? {
+        didSet {
+            if let q = quiz, let task = q.currentTask() {
+                updateChildViewControllers(using: task)
+            }
+        }
+    }
     private let resultView = TaskSolutionView()
 
     override func viewDidLoad() {
@@ -47,18 +54,20 @@ class AlphabetQuizViewController: UIViewController, TopBottomViewControllerConta
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        guard let task = quiz.currentTask() else {
-            return
-        }
+        prepareNewQuiz()
+    }
 
+    private func updateChildViewControllers(using task: QuizTask) {
         topViewController?.characterViewModel = task.solution
         bottomViewController?.update(with: task)
     }
 
-    private func showResults(for quiz: Quiz) {
-        if let selectionViewController = bottomViewController {
-            selectionViewController.enabled = false
+    private func showResults() {
+        guard let resultCoordinator = resultCoordinator, let selectionViewController = bottomViewController else {
+            return
         }
+
+        selectionViewController.enabled = false
 
         let quizResultViewController = QuizResultViewController(resultCoordinator: resultCoordinator, completion: { [weak self] in
             self?.prepareNewQuiz()
@@ -69,7 +78,12 @@ class AlphabetQuizViewController: UIViewController, TopBottomViewControllerConta
     }
 
     private func prepareNewQuiz() {
+        quiz = Quiz(alphabet: .scientific)
+        resultCoordinator = QuizResultCoordinator()
 
+        if let selectionViewController = bottomViewController {
+            selectionViewController.enabled = true
+        }
     }
 
     private func setupTaskSolutionView() {
