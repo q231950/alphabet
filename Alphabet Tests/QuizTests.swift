@@ -23,7 +23,7 @@ class QuizTests: XCTestCase {
                                                   CharacterViewModel(character: "c", capitalCharacter: "C", name: "Letter C"),
                                                   CharacterViewModel(character: "d", capitalCharacter: "D", name: "Letter D"),
                                                   ])
-        quiz = Quiz(alphabet: alphabet)
+        quiz = Quiz(alphabet: alphabet, taskCount: 4)
         solution = CharacterViewModel()
     }
 
@@ -64,7 +64,7 @@ class QuizTests: XCTestCase {
     }
 
     func testIncorrectSolution() {
-        let result = quiz.solveTask(solution: solution)
-        XCTAssertFalse(result)
+        let result: ResultType = quiz.solveTask(solution: solution)
+        XCTAssertEqual(result, ResultType.mistake(solution: solution))
     }
 }

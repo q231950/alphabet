@@ -13,9 +13,9 @@ public class Quiz {
     internal var tasks = [QuizTask]()
     private var index: Int = 0
     
-    public init(alphabet: AlphabetViewModel) {
+    public init(alphabet: AlphabetViewModel, taskCount: Int = 10) {
         self.alphabet = alphabet
-        setupTasks()
+        setupTasks(taskCount: taskCount)
     }
     
     func currentTask() -> QuizTask? {
@@ -36,7 +36,7 @@ public class Quiz {
         }
     }
     
-    private func setupTasks() {
+    private func setupTasks(taskCount: Int) {
         var randomTasks = [UInt32: QuizTask]()
         for (_, character) in alphabet.characters.enumerated() {
             let random = generateRandom(notContainedIn: randomTasks, elements: alphabet.characters)
@@ -55,7 +55,7 @@ public class Quiz {
                 return element.value
             })
 
-        tasks = Array(randomized[0...9]) // take sample of 10 questions
+        tasks = Array(randomized[0...taskCount-1]) // take sample of 10 questions
     }
 
     private func choices(for character: CharacterViewModel, options: [CharacterViewModel]) -> [CharacterViewModel] {
