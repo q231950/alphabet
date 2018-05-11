@@ -98,25 +98,25 @@ class QuizResultViewModel {
 
     private func result(for value: Float) -> String {
         if verhaeltnis > 0.9 {
-            return "Are you scientist or are you Greek? 🥇 \(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved, congratulations!"
+            return "Are you scientist or are you Greek? \(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly, congratulations!"
         } else if verhaeltnis > 0.8 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved, congratulations 🥈"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly, congratulations!"
         } else if verhaeltnis > 0.7 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved, congratulations 🥉"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly, congratulations!"
         } else if verhaeltnis > 0.6 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         } else if verhaeltnis > 0.5 {
-            return "\(resultCoordinator.correctAnswers) are more than \(resultCoordinator.incorrectAnswers) - you are getting there. You correctly solved \(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers)."
+            return "\(resultCoordinator.correctAnswers) are more than \(resultCoordinator.incorrectAnswers) - you are getting there. You solved correctly. \(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers)."
         } else if verhaeltnis > 0.4 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         } else if verhaeltnis > 0.3 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         } else if verhaeltnis > 0.2 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         } else if verhaeltnis > 0.1 {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         } else {
-            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were correctly solved"
+            return "\(resultCoordinator.correctAnswers) out of \(resultCoordinator.totalAnswers) questions were solved correctly."
         }
     }
 }

@@ -12,6 +12,7 @@ import UIKit
 class CharacterView: UIView {
     
     private let characterLabel = UILabel()
+    private let variantCharacterLabel = UILabel()
     private let capitalCharacterLabel = UILabel()
     let characterDescriptionLabel = UILabel()
     var isCharacterDescriptionLabelHidden: Bool = false {
@@ -34,9 +35,18 @@ class CharacterView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func update(character: String, capitalCharacter: String, description: String) {
+    func update(character: String, variant: String?, capitalCharacter: String, description: String) {
         characterLabel.attributedText = NSAttributedString(string: character,
                                                            style: .largeCharacterStyle, traitCollection: traitCollection)
+
+        if let v = variant {
+            variantCharacterLabel.attributedText = NSAttributedString(string: v,
+                                                                      style: .largeCharacterStyle, traitCollection: traitCollection)
+            variantCharacterLabel.isHidden = false
+        } else {
+            variantCharacterLabel.isHidden = true
+        }
+
         capitalCharacterLabel.attributedText = NSAttributedString(string: capitalCharacter,
                                                                   style: .largeCharacterStyle, traitCollection: traitCollection)
         characterDescriptionLabel.attributedText = NSAttributedString(string: description,
@@ -69,6 +79,9 @@ class CharacterView: UIView {
 
         setupLabel(characterLabel)
         characterStackView.addArrangedSubview(characterLabel)
+
+        setupLabel(variantCharacterLabel)
+        characterStackView.addArrangedSubview(variantCharacterLabel)
 
         setupLabel(capitalCharacterLabel)
         characterStackView.addArrangedSubview(capitalCharacterLabel)

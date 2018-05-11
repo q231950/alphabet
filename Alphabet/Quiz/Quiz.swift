@@ -49,11 +49,13 @@ public class Quiz {
             let task = QuizTask(solution: character, choices: choices)
             randomTasks[random] = task
         }
-        tasks = randomTasks.sorted { (element, other) -> Bool in
+        let randomized = randomTasks.sorted { (element, other) -> Bool in
             return element.key > other.key
             }.compactMap({ element -> QuizTask in
                 return element.value
             })
+
+        tasks = Array(randomized[0...9]) // take sample of 10 questions
     }
 
     private func choices(for character: CharacterViewModel, options: [CharacterViewModel]) -> [CharacterViewModel] {

@@ -44,6 +44,7 @@ class CharacterViewController: UIViewController {
         }
         
         characterView.update(character: characterViewModel.character,
+                             variant: characterViewModel.variant,
                              capitalCharacter: characterViewModel.capitalCharacter,
                              description: characterViewModel.name)
     }
