@@ -1,0 +1,19 @@
+agent {
+  label 'ios-node'
+}
+
+pipeline {
+  
+  stages {
+  
+    stage('Configure') {
+      checkout scm
+    }
+
+    stage('Build') {
+      sh 'xcodebuild -list'
+    }
+
+  }
+
+}
