@@ -7,11 +7,15 @@ pipeline {
   stages {
   
     stage('Configure') {
-      checkout scm
+      steps {
+        checkout scm
+      }
     }
 
     stage('Build') {
-      sh 'xcodebuild -list'
+      steps {
+        sh 'xcodebuild -list'
+      }
     }
 
   }
