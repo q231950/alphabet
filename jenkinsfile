@@ -1,0 +1,44 @@
+pipeline {
+
+  agent {
+    label 'ios-node'
+  }
+  
+  stages {
+  
+    stage('Configure') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'xcodebuild -list'
+        sh "xcodebuild \
+            clean \
+            build-for-testing \
+            -scheme 'Alphabet' \
+            -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4' \
+            -derivedDataPath './derived-data'"
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh "xcodebuild \
+            test-without-building \
+            -xctestrun './derived-data/Build/Products/Alphabet_iphonesimulator11.4-x86_64.xctestrun' \
+            -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'"
+      }
+    }
+
+  }
+
+  post {
+      always {
+        sh 'rm -rf derived-data'
+      }
+    }
+
+}
