@@ -1,8 +1,8 @@
-agent {
-  label 'ios-node'
-}
-
 pipeline {
+
+  agent {
+    label 'ios-node'
+  }
   
   stages {
   
